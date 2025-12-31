@@ -2,9 +2,12 @@ import React from 'react'
 
 
 import Header from "../components/Header.jsx"
-import { FaBed } from "react-icons/fa";
+import { FaBed, FaSnowflake } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { FaHeadphones } from "react-icons/fa6";
+import { CiWifiOn } from "react-icons/ci";
+import { IoShieldCheckmarkSharp } from "react-icons/io5"
+import { GiBedLamp } from "react-icons/gi";
 
 
 import familyImg from "../assets/family.jpg"
@@ -58,7 +61,7 @@ export default function Home() {
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Exclusive Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $250 / night</p>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $250 /night</p>
                 <button className=" mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:bg-yellow-800 transition-colors duration-300">View Details</button>
               </div>
             </div> 
@@ -69,8 +72,8 @@ export default function Home() {
                 <img src={regularImg} alt="regular hotel room" className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
               </div>
               <div className='p-6 flex flex-col '>
-                <h3 className='text-2xl font-semibold font-serif'>Exclusive Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $250 / night</p>
+                <h3 className='text-2xl font-semibold font-serif'>Regular Suite</h3>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $150 /night</p>
                 <button className=" mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:bg-yellow-800 transition-colors duration-300">View Details</button>
               </div>
             </div> 
@@ -81,12 +84,51 @@ export default function Home() {
               <img src={familyImg} alt="family hotel room" className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
               </div>
               <div className='p-6 flex flex-col '>
-                <h3 className='text-2xl font-semibold font-serif'>Exclusive Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $250 / night</p>
+                <h3 className='text-2xl font-semibold font-serif'>Family Suite</h3>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $300 /night</p>
                 <button className=" mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:bg-yellow-800 transition-colors duration-300">View Details</button>
               </div>
             </div> 
           </div>
+        </section>
+
+        <section className='text-center py-24 px-6 sm:px-16 bg-gray-900 mt-24'>
+          <h3 className='mb-4 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif text-center '>Experience Comfort & Luxury</h3>
+          <p className='mt-2 mb-8 text-lg font-medium text-gray-300'>At DSuite, every stay is designed to offer comfort, elegance, and peace of mind.</p>
+          <div className='flex gap-6 flex-col md:flex-row md:justify-center md:items-stretch '>
+              <div className='border-r-0 md:border-r-2 md:pr-6 border-gray-600'>
+              <div className='bg-yellow-700 rounded-full w-16 mx-auto'>
+                <CiWifiOn className='w-3/5 h-16 mx-auto text-white'/>
+              </div>
+              <p className='text-gray-300 mt-4 mb-2 text-2xl font-medium font-serif'>Free Wi-Fi</p>
+              <p className='text-gray-300 text-lg'>Enjoy fast and reliable Wi-Fi throughout the hotel, perfect for work, streaming, and staying connected.</p>
+              </div>
+
+              <div className='border-r-0 md:border-r-2 md:pr-6 border-gray-600'>
+              <div className='bg-yellow-700 rounded-full w-16 mx-auto'>
+                <FaSnowflake className='w-3/5 h-16 mx-auto text-white'/>
+              </div>
+              <p className='text-gray-300 mt-4 mb-2 text-2xl font-medium font-serif'>Air Conditioning</p>
+              <p className='text-gray-300 text-lg'>All rooms are fully air-conditioned to ensure a comfortable and relaxing stay, regardless of the weather.</p>
+              </div>
+ 
+              <div className='border-r-0 md:border-r-2 md:pr-6 border-gray-600'>
+              <div className='bg-yellow-700 rounded-full w-16 mx-auto'>
+                <IoShieldCheckmarkSharp className='w-3/5 h-16 mx-auto text-white'/>
+              </div>
+              <p className='text-gray-300 mt-4 mb-2 text-2xl font-medium font-serif'>Secure Environment</p>
+              <p className='text-gray-300 text-lg'>Our hotel provides a safe and secure environment with 24/7 surveillance and controlled access for guest peace of mind.</p>
+              </div>
+
+              <div>
+              <div className='bg-yellow-700 rounded-full w-16 mx-auto'>
+                <GiBedLamp className='w-3/5 h-16 mx-auto text-white'/>
+              </div>
+              <p className='text-gray-300 mt-4 mb-2 text-2xl font-medium font-serif'>Modern Interior</p>
+              <p className='text-gray-300 text-lg'>Experience a stylish, modern interior designed with comfort, elegance, and functionality in mind.</p>
+              </div>
+          </div>
+         
         </section>
       </main>
     </>
