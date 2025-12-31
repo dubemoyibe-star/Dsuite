@@ -1,14 +1,12 @@
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
-
-  @theme {
+:root {
     /*colors*/
   --color-gold: #c9a24d;
 
   /*background images*/
-  --background-image-hero-mobile: url("./assets/bg-hero-mobile.jpg");
-  --background-image-hero-desktop: url("./assets/bg-hero-desktop.jpg");
+  --background-image-hero-mobile: url("/assets/bg-hero-mobile.jpg");
+  --background-image-hero-desktop: url("/assets/bg-hero-desktop.jpg");
 
   /*font families*/
    --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

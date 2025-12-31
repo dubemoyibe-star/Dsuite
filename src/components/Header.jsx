@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <nav className="flex justify-between p-4 bg-gra-700 text-white shadow-2xl fixed w-full top-0 items-center backdrop-blur-sm z-50">
       <ul> 
-        <div className='w-16 h-16   rounded-full bg-gold'>
+        <div className='w-16 h-16   rounded-full bg-yellow-100'>
           <img src={logo} alt="Logo" className='w-full h-full'/>
         </div>
     </ul>
