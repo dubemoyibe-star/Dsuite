@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBed, FaHeadphones } from "react-icons/fa";
+import { FaBed } from "react-icons/fa";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { GiHouse } from "react-icons/gi";
 import logo from "../assets/logo.png"
@@ -34,24 +34,24 @@ export default function About() {
         </section>
 
         <section className='text-center'>
-                  <h2 className='mt-24 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif mb-12'>Our Core Values</h2>
-                  <div className=' flex flex-col md:flex-row md:justify-center md:items-stretch gap-4 px-4 sm:px-16'>
-                    <div className='flex flex-col  items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
-                      <div className='bg-yellow-700 rounded-full w-12'><FaBed className='w-7/12 h-12 mx-auto text-white'/></div>
-                      <h3 className='mt-4 text-xl font-semibold '>Comfort First</h3>
-                      <p className='mt-2 text-gray-600 px-4 font-medium'>Every room is carefully selected and designed to provide a relaxing and enjoyable stay.</p>
-                    </div> 
-                    <div className='flex flex-col items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
-                      <div className='bg-yellow-700 rounded-full w-12'><IoShieldCheckmarkSharp className='w-7/12 h-12 mx-auto text-white'/></div>
-                      <h3 className='mt-4 text-xl font-semibold '>Secure & Reliable</h3>
-                      <p className='mt-2 text-gray-600 px-4 font-medium'>We prioritize guest safety through secure environments and trusted booking systems.</p>
-                    </div> 
-                    <div className='flex flex-col items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
-                      <div className='bg-yellow-700 rounded-full w-12'><GiHouse className='w-7/12 h-12 mx-auto text-white'/></div>
-                      <h3 className='mt-4 text-xl font-semibold '>Modern Living</h3>
-                      <p className='mt-2 text-gray-600 px-4 font-medium'>Our interiors reflect modern design, clean anaesthetics and functional comfort.</p>
-                    </div> 
-                  </div>
+          <h2 className='mt-24 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif mb-12'>Our Core Values</h2>
+          <div className=' flex flex-col md:flex-row md:justify-center md:items-stretch gap-4 px-4 sm:px-16'>
+            <div className='flex flex-col  items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
+              <div className='bg-yellow-700 rounded-full w-12'><FaBed className='w-7/12 h-12 mx-auto text-white'/></div>
+              <h3 className='mt-4 text-xl font-semibold '>Comfort First</h3>
+              <p className='mt-2 text-gray-600 px-4 font-medium'>Every room is carefully selected and designed to provide a relaxing and enjoyable stay.</p>
+            </div> 
+            <div className='flex flex-col items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
+              <div className='bg-yellow-700 rounded-full w-12'><IoShieldCheckmarkSharp className='w-7/12 h-12 mx-auto text-white'/></div>
+              <h3 className='mt-4 text-xl font-semibold '>Secure & Reliable</h3>
+              <p className='mt-2 text-gray-600 px-4 font-medium'>We prioritize guest safety through secure environments and trusted booking systems.</p>
+            </div> 
+            <div className='flex flex-col items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
+              <div className='bg-yellow-700 rounded-full w-12'><GiHouse className='w-7/12 h-12 mx-auto text-white'/></div>
+              <h3 className='mt-4 text-xl font-semibold '>Modern Living</h3>
+              <p className='mt-2 text-gray-600 px-4 font-medium'>Our interiors reflect modern design, clean anaesthetics and functional comfort.</p>
+            </div> 
+          </div>
         </section>
     </main>
     )
