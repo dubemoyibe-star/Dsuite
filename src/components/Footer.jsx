@@ -1,7 +1,17 @@
 import logo from '../assets/logo.png'; 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
+
+  const quickLinksNavClass = ({ isActive }) =>
+  `font-light cursor-pointer transition-colors duration-300
+   ${
+     isActive
+       ? "text-gray-200"
+       : "text-yellow-900 hover:text-gray-200"
+   }`
+
   return (
     <footer className='bg-gray-800 p-8'>
       <section className='flex flex-col md:flex-row justify-between gap-4 p-4 '>
@@ -15,13 +25,13 @@ export default function Footer() {
         
         <div className='p-4 md:border-gray-200 md:border-r-1 md:pr-6 md:w-1/4'>
             <h4 className='mb-4 text-lg font-bold font-serif text-yellow-700 text-center md:text-left'>Quick Links</h4>
-            <ul className='flex flex-row md:flex-col  justify-center gap-4'>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>Home</li>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>About</li>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>Rooms</li>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>FAQs</li>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>Contact Us</li>
-            </ul>
+            <div className='flex flex-row md:flex-col  justify-center gap-4'>
+              <NavLink to="/"className={quickLinksNavClass}>Home</NavLink>
+              <NavLink to="about" className={quickLinksNavClass}>About</NavLink>
+              <NavLink to="rooms" className={quickLinksNavClass}>Rooms</NavLink>
+              <NavLink to="faqs" className={quickLinksNavClass}>FAQs</NavLink>
+              <NavLink to="contact-us" className={quickLinksNavClass}>Contact Us</NavLink>
+            </div>
         </div>
 
         <div className='p-4 md:border-gray-200 md:border-r-1 md:pr-6 md:w-1/4'>
@@ -36,7 +46,7 @@ export default function Footer() {
         <div className='p-4 md:w-1/4'>
             <h4 className='mb-4 text-lg font-bold font-serif text-yellow-700 text-center md:text-left'>Contact</h4>
             <ul className='flex flex-col items-center  md:items-start gap-4'>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>dubem@gmail.com</li>
+              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>dubemoyibe@gmail.com</li>
               <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>+234 70 2613 7565</li>
               <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>123 MaryLand, Lekki , Nigeria</li>
             </ul>

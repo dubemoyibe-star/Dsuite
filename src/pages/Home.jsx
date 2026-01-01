@@ -1,8 +1,5 @@
-import React from 'react'
+import React from "react";
 
-
-import Header from "../components/Header.jsx"
-import Footer from "../components/Footer.jsx"
 import { FaBed, FaSnowflake } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { FaHeadphones } from "react-icons/fa6";
@@ -18,7 +15,6 @@ import exclusiveImg from "../assets/exclusive.jpg"
 export default function Home() {
   return (
     <>
-      <Header />
       <main className='bg-gray-300'>
         <section className="pt-32 px-6 sm:px-16 bg-[image:var(--background-image-hero-mobile)] bg-cover bg-center h-screen flex flex-col justify-center items-start text-gray-900 md:bg-[image:var(--background-image-hero-desktop)] ">
           <h1 className="text-5xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <span className='block'>Suites With Ease</span></h1>
@@ -139,8 +135,6 @@ export default function Home() {
             <button className="px-10 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300">Contact Us</button>
           </div>
         </section>
-
-      <Footer />
       </main>
     </>
   )
