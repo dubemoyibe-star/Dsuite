@@ -14,7 +14,7 @@ export default function Home() {
       <main className='bg-gray-300'>
         <section className="pt-32 px-6 sm:px-16 bg-[image:var(--background-image-hero-mobile)] bg-cover bg-center h-screen flex flex-col justify-center items-start text-gray-900 md:bg-[image:var(--background-image-hero-desktop)] ">
           <h1 className="text-5xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <span className='block'>Suites With Ease</span></h1>
-          <p className="text-gray-200 font-medium text-shadow-lg text-2xl sm:text-3xl">Modern Rooms, Simple Bookings, <span className='block'>Travel Services</span></p>
+          <p className="text-gray-200 font-serif text-shadow-sm text-shadow-black font-medium text-shadow-lg text-2xl sm:text-3xl">Modern Rooms, Simple Bookings, <span className='block'>Travel Services</span></p>
           <div>
             <button className="mt-6 px-8 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold rounded-lg hover:shadow-2xl active:shadow-2xl cursor-pointer hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">Book Now</button>
             <button className="mt-6 ml-4 px-8 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300">Learn More</button>
@@ -33,12 +33,12 @@ export default function Home() {
             <div className='flex flex-col items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
               <div className='bg-yellow-700 rounded-full w-12'><SlCalender className='w-7/12 h-12 mx-auto text-white'/></div>
               <h3 className='mt-4 text-xl font-semibold '>Easy Online Booking</h3>
-              <p className='mt-2 text-gray-600 px-4 font-medium'>Top notch rooms can be secured from the confort of your home</p>
+              <p className='mt-2 text-gray-600 px-4 font-medium'>Top notch rooms can be secured from the confort of your home.</p>
             </div> 
             <div className='flex flex-col items-center p-6  bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300'>
               <div className='bg-yellow-700 rounded-full w-12'><FaHeadphones className='w-7/12 h-12 mx-auto text-white'/></div>
               <h3 className='mt-4 text-xl font-semibold '>24/7 Customer Support</h3>
-              <p className='mt-2 text-gray-600 px-4 font-medium'>Our support team is working around the clock to ensure a magnificent experience</p>
+              <p className='mt-2 text-gray-600 px-4 font-medium'>Our support team is working around the clock to ensure a magnificent experience.</p>
             </div> 
           </div>
         </section>

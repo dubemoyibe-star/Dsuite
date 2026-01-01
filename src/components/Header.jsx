@@ -26,7 +26,7 @@ const navLinkClassMobile = ({ isActive }) =>
     <nav className="flex justify-between p-4 text-white shadow-2xl fixed w-full top-0 items-center backdrop-blur-sm z-50">
       <div> 
         <div className='w-16 h-16 rounded-full bg-yellow-100'>
-          <img src={logo} alt="Logo" className='w-full h-full'/>
+          <img src={logo} alt="Logo" className='w-full h-full object-contain'/>
         </div>
       </div>
       {

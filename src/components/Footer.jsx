@@ -17,7 +17,7 @@ export default function Footer() {
       <section className='flex flex-col md:flex-row justify-between gap-4 p-4 '>
         <div className='flex flex-col items-center md:border-gray-200 md:border-r-1 md:pr-6 md:w-1/4'>
           <div className='w-16 h-16 rounded-full bg-yellow-100'>
-          <img src={logo} alt="Logo" className='w-full h-full'/>
+          <img src={logo} alt="Logo" className='w-full h-full object-contain'/>
         </div>
         <p className='mt-2 font-medium text-lg text-center text-gray-200'>Our gateway to comfortable and elegant stays, where modern design meets exceptional hospitality.</p>
         </div>
