@@ -21,12 +21,12 @@ export default function About() {
           <h2 className='mt-24 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif'>Who Are We</h2>
           <p className='mt-2 pb-8 text-lg font-medium '>Built around comfort, simplicity and trust</p>
           <div className="shadow-lg  relative hover:shadow-2xl bg-gray-100 max-w-4xl mx-auto p-8 rounded-lg transition-shadow duration-300">
-             <div className="relative mx-auto mb-4 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
-              <span className="absolute top-1/2 left-[-100vw] w-[200vw] h-px bg-gray-300 -translate-y-1/2"></span>
-              <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-yellow-100 shadow-sm shadow-gray-200">
-                <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+             <div className="relative my-4">
+                <span className="absolute top-1/2 left-0 w-full h-px bg-gray-300 -translate-y-1/2"></span>
+                <div className="relative mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-yellow-100 shadow-sm shadow-gray-200 flex items-center justify-center">
+                  <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+                </div>
               </div>
-            </div>
             <p className="text-shadow-sm leading-relaxed shadow-gray-900 text-gray-900">
               At DSuite, we prioritize your comfort and convenience. Our modern suites are designed to provide a relaxing atmosphere, equipped with all the amenities you need for a pleasant stay. With our easy booking process and dedicated customer support, we ensure that your experience is seamless from start to finish. Choose DSuite for a stay that feels like home, away from home.
             </p>
