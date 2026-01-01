@@ -1,20 +1,16 @@
 import React from "react";
-
 import { FaBed, FaSnowflake } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { FaHeadphones } from "react-icons/fa6";
 import { CiWifiOn } from "react-icons/ci";
 import { IoShieldCheckmarkSharp } from "react-icons/io5"
 import { GiBedLamp } from "react-icons/gi";
-
-
 import familyImg from "../assets/family.jpg"
 import regularImg from "../assets/regular.jpg"
 import exclusiveImg from "../assets/exclusive.jpg"
 
 export default function Home() {
   return (
-    <>
       <main className='bg-gray-300'>
         <section className="pt-32 px-6 sm:px-16 bg-[image:var(--background-image-hero-mobile)] bg-cover bg-center h-screen flex flex-col justify-center items-start text-gray-900 md:bg-[image:var(--background-image-hero-desktop)] ">
           <h1 className="text-5xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <span className='block'>Suites With Ease</span></h1>
@@ -136,6 +132,5 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </>
   )
 }

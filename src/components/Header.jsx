@@ -35,6 +35,7 @@ const navLinkClassMobile = ({ isActive }) =>
           flex-col gap-8 p-8 z-50 shadow-2xl transform transition-transform duration-700 ease-in-out
           ${open ? 'translate-x-0' : 'translate-x-full'}`}
           aria-expanded={open ? true : false}
+          aria-live='polite'
           >
             <IoMdClose className="w-8 h-8 mb-4 cursor-pointer  hover:text-red-700 active:text-red-700" onClick={() => setOpen(false)}/>
             <NavLink to="/" className={navLinkClassMobile}>Home</NavLink>
