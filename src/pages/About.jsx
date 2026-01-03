@@ -1,6 +1,8 @@
 import React from "react";
 import { FaBed } from "react-icons/fa";
+import { SiComma } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
+import { TbCircleNumber1Filled, TbCircleNumber2Filled, TbCircleNumber3Filled } from "react-icons/tb";
 import { GiHouse } from "react-icons/gi";
 import logo from "../assets/logo.png"
 
@@ -52,6 +54,49 @@ export default function About() {
               <p className='mt-2 text-gray-600 px-4 font-medium'>Our interiors reflect modern design, clean anaesthetics and functional comfort.</p>
             </div> 
           </div>
+        </section>
+
+        <section className="text-center px-4 sm:px-16 bg-gray-100 py-20 mt-24">
+          <h2 className=' text-medium text-3xl sm:text-4xl text-yellow-700 font-serif'>Our Booking Philosophy</h2>
+          <div className="md:flex">
+            <div className="lg:flex  gap-4 lg:mt-12 lg:items-start">
+              <TbCircleNumber1Filled className="w-12 h-12 text-yellow-700 flex-shrink-0 mx-auto mt-8 lg:mt-0"/>
+              <div>
+                <h3 className="text-xl font-semibold font-serif text-gray-900 mb-2 lg:text-left">Discover Quality Rooms</h3>
+                <p className="text-gray-900 lg:text-left">Browse a curated selection of modern and comfortable suites.</p>
+              </div>
+            </div>
+
+            <div className="lg:flex gap-4 lg:mt-12 lg:items-start">
+              <TbCircleNumber2Filled className="w-12 h-12 mx-auto mt-8 text-yellow-700 flex-shrink-0 lg:mt-0"/>
+              <div className="lg:text-left">
+                <h3 className="text-xl font-semibold font-serif text-gray-900 mb-2">Book With Confidence</h3>
+                <p className="text-gray-900 ">Clear pricing, real availability and instant confirmation.</p>
+              </div>
+            </div>
+
+            <div className="lg:flex gap-4 lg:mt-12 lg:items-start">
+              <TbCircleNumber3Filled className="w-12 h-12 mx-auto mt-8 text-yellow-700 flex-shrink-0 lg:mt-0"/>
+              <div className="lg:text-left">
+                <h3 className="text-xl font-semibold font-serif text-gray-900 mb-2">Enjoy Your Stay</h3>
+                <p className="text-gray-900 ">Relax in a secure well-designed space made for comfort.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className='text-center py-24 px-6 sm:px-16 bg-gray-800'>
+          <h3 className='mb-4 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif text-center '>Stay With Confidence</h3>
+          <p className='mt-2 mb-8 text-lg font-medium text-gray-300'>Experience modern comfort, trusted service and effortless booking with DSuite </p>
+          <div className='flex justify-center flex-col md:flex-row gap-4'>
+            <button className="px-10 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold rounded-lg hover:shadow-2xl cursor-pointer 
+                              hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">View Rooms</button>
+            <button className="px-10 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300">Contact Us</button>
+          </div>
+        </section>
+
+        <section className="p-24 bg-gray-100 text-center">
+         <p className="italic text-yellow-700 font-bold font-serif text-xl md:text-2xl text-shadow-lg"><span className="text-3xl md:text-5xl">''</span> Where refined luxury meets effortless comfort.<span className="text-3xl md:text-5xl">''</span></p> 
         </section>
     </main>
     )

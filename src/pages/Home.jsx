@@ -5,9 +5,9 @@ import { FaHeadphones } from "react-icons/fa6";
 import { CiWifiOn } from "react-icons/ci";
 import { IoShieldCheckmarkSharp } from "react-icons/io5"
 import { GiBedLamp } from "react-icons/gi";
-import familyImg from "../assets/family.jpg"
-import regularImg from "../assets/regular.jpg"
-import exclusiveImg from "../assets/exclusive.jpg"
+import familyImg from "/assets/family.jpg"
+import regularImg from "/assets/regular.jpg"
+import exclusiveImg from "/assets/exclusive.jpg"
 
 export default function Home() {
   return (
