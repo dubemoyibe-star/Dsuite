@@ -11,7 +11,7 @@ const PORT = 8000;
 
 app.use(express.json());
 
-app.use("/api", apiKeyAuth);
+//app.use("/api", apiKeyAuth);
 app.use('/api', roomsRouter);
 
 app.listen(PORT, () => {

@@ -8,6 +8,7 @@ import FaqsPage from './pages/FaqsPage.jsx'
 import Login from './pages/Login.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Layout from './components/Layout.jsx'
+import RoomDetail from './pages/RoomDetail.jsx'
 
 export default function App() {
 
@@ -22,8 +23,10 @@ export default function App() {
           <Route path='contact-us' element={<ContactUs />} />
           <Route path='faqs' element={<FaqsPage />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='rooms/:id' element={<RoomDetail />} />
         </Route>
 
+        
         <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { BsTv } from "react-icons/bs";
 import { PiBowlFoodLight, PiBroom } from "react-icons/pi";
 import { IoSnowOutline, IoWifiOutline} from "react-icons/io5";
@@ -16,12 +17,8 @@ export default function Rooms() {
   React.useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await fetch("/api/rooms", {
-          headers: {
-            "x-api-key": import.meta.env.VITE_API_KEY
-          }
-        });
-
+        const res = await fetch("/api/rooms");
+        
         if (!res.ok) {
           throw new Error("Failed to load rooms");
         }
@@ -60,8 +57,8 @@ export default function Rooms() {
 
       {!loading && !error && 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-12 pb-24">
-        {rooms.map(({name, description, price_per_night, image_url, max_guests, has_breakfast }) => (
-          <div className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
+        {rooms.map(({ id, name, description, price_per_night, image_url, max_guests, has_breakfast }) => (
+          <div key={id} className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
           <div className="overflow-hidden rounded-t-lg">
           <img src={`/assets/${image_url}`} alt={`${name}`} className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
           </div>
@@ -91,7 +88,9 @@ export default function Rooms() {
               </div>
             </div>
             <p className="font-medium text-2xl pt-4 text-gray-800">₦{price_per_night.toLocaleString()} <span className="font-light text-lg font-sans">/night</span></p>
+            <Link to={`/rooms/${id}`}>
             <button className=" mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">View Details</button>
+            </Link>
           </div>
         </div> 
         ))}
