@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaBed } from "react-icons/fa";
-import { SiComma } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { TbCircleNumber1Filled, TbCircleNumber2Filled, TbCircleNumber3Filled } from "react-icons/tb";
 import { GiHouse } from "react-icons/gi";
@@ -13,9 +13,11 @@ export default function About() {
           <h1 className="text-5xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">About DSuites</h1>
           <p className="text-gray-300 font-serif text-shadow-sm text-shadow-black font-medium text-shadow-lg text-2xl sm:text-3xl">Experience Comfort,<span className='block'>Designed for You</span></p>
           <p className="text-gray-300 mt-2 font-medium font-serif text-shadow-sm text-shadow-black text-lg sm:text-xl">Modern hospitality focused on<span className='block'>comfort, security and simplicity</span></p>
-          <div>
-            <button className="mt-6 px-8 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold rounded-lg hover:shadow-2xl active:shadow-2xl cursor-pointer hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">Explore Rooms</button>
-            <button className="mt-6 ml-4 px-8 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300">Contact Us</button>
+          <div className="mt-4">
+            <Link to="/rooms" className="mt-6 px-8 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold 
+            rounded-lg hover:shadow-2xl active:shadow-2xl cursor-pointer hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>Explore Rooms</button></Link>
+            <Link to="/contact-us" className="mt-6 ml-4 px-8 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold 
+            rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300"><button>Contact Us</button></Link>
           </div>
         </section>
 
@@ -89,9 +91,10 @@ export default function About() {
           <h3 className='mb-4 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif text-center '>Stay With Confidence</h3>
           <p className='mt-2 mb-8 text-lg font-medium text-gray-300'>Experience modern comfort, trusted service and effortless booking with DSuite </p>
           <div className='flex justify-center flex-col md:flex-row gap-4'>
-            <button className="px-10 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold rounded-lg hover:shadow-2xl cursor-pointer 
-                              hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">View Rooms</button>
-            <button className="px-10 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300">Contact Us</button>
+            <Link to="/rooms" className="px-10 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold rounded-lg hover:shadow-2xl cursor-pointer 
+                              hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>View Rooms</button></Link>
+            <Link to="/contact-us" className="px-10 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 
+            active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300"><button>Contact Us</button></Link>
           </div>
         </section>
 
