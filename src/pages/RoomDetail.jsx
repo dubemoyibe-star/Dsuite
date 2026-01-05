@@ -1,5 +1,5 @@
 import react from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaCheck } from "react-icons/fa";
 import { IoSnowOutline, IoWifiOutline } from "react-icons/io5";
@@ -19,7 +19,12 @@ export default function RoomDetail() {
   react.useEffect(() => {
     const fetchRoomDetail = async () => {
       try {
-        const res = await fetch(`/api/rooms/${id}`);
+        const res = await fetch(`/api/rooms/${id}`, {
+          headers: {
+            "x-api-key": import.meta.env.VITE_API_KEY,
+          },
+          credentials: "include",
+        });
 
         if (!res.ok) {
           throw new Error("Failed to load room details");
@@ -38,7 +43,6 @@ export default function RoomDetail() {
   }, [id]);
 
 
-  console.log(room);
   const { name,  image_url, max_guests, has_breakfast, thumbnails, price_per_night, long_description, features } = room || {};
 
   const parsedThumbnails = Array.isArray(thumbnails)
@@ -72,9 +76,8 @@ export default function RoomDetail() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-stretch">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4 flex-1">
                 {parsedThumbnails.map((thumb, index) => (
-                  <div className="overflow-hidden rounded-lg">
+                  <div key={thumb} className="overflow-hidden rounded-lg">
                   <img
-                    key={thumb}
                     src={`/assets/${thumb}`}
                     alt={`${name} thumbnail ${index + 1}`}
                     className="w-full h-40 lg:h-56  object-cover rounded-lg transition-transform duration-300 ease-out hover:scale-110 cursor-pointer"
@@ -87,7 +90,8 @@ export default function RoomDetail() {
                   {name}
                 </span>
                 <p className="font-medium text-3xl lg:text-4xl pt-4 text-gray-800">₦{price_per_night.toLocaleString()} <span className="font-light text-lg font-sans">/night</span></p>
-                <button className="w-full mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">Book Now</button>
+                <Link to="/checkout" className="w-full mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  
+                hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300 text-center"><button>Book Now</button></Link>
               </div>
             </div>
           </div>

@@ -57,7 +57,7 @@ export default function Home() {
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Exclusive Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $250 /night</p>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $60,000 /night</p>
                 <Link to="rooms/1" className="text-center mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>View Details</button></Link>
               </div>
             </div> 
@@ -69,7 +69,7 @@ export default function Home() {
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Regular Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $150 /night</p>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $30,000 /night</p>
                 <Link to="rooms/2" className="text-center mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>View Details</button></Link>
               </div>
             </div> 
@@ -81,7 +81,7 @@ export default function Home() {
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Family Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $300 /night</p>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $45,000 /night</p>
                <Link to="rooms/3" className="text-center mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>View Details</button></Link>
               </div>
             </div> 

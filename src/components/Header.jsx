@@ -1,11 +1,30 @@
 import React from 'react'
 import logo from '../assets/logo.png' 
-import { NavLink } from 'react-router-dom';
+import {  NavLink, useNavigate} from 'react-router-dom';
 import { LuMenu } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
+import { FaUserCircle } from "react-icons/fa";
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function Header() {
+  const navigate = useNavigate()
   const [open, setOpen] = React.useState(false);
+  const { isAuth, loading, setUser, logout } = React.useContext(AuthContext);
+
+  const handleLogout = async () => {
+    try {
+       await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      await logout();
+    setUser(null);
+    navigate("/", { replace: true });
+    } catch (error) {
+      console.log(error)
+    }
+ 
+  };
 
   React.useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -44,7 +63,15 @@ export default function Header() {
           <NavLink to="rooms" className={navLinkClassDesktop}>Rooms</NavLink>
           <NavLink to="faqs" className={navLinkClassDesktop}>FAQs</NavLink>
           <NavLink to="contact-us" className={navLinkClassDesktop}>Contact Us</NavLink>
-          <NavLink to="login" className={navLinkClassDesktop}>Log in</NavLink>
+          {!loading && (
+            !isAuth ? (
+              <NavLink to="/login" className={navLinkClassDesktop}>Log in</NavLink>
+            ) : (
+              <NavLink to="/profile" className="text-lg text-yellow-700 hover:text-yellow-500 flex items-center">
+                <FaUserCircle className="w-8 h-8" />
+              </NavLink>
+            )
+          )}
         </div>
 
         {/* mobile menu button */}
@@ -78,8 +105,47 @@ export default function Header() {
         <NavLink to="rooms" className={navLinkClassMobile} onClick={() => setOpen(false)}>Rooms</NavLink>
         <NavLink to="faqs" className={navLinkClassMobile} onClick={() => setOpen(false)}>FAQs</NavLink>
         <NavLink to="contact-us" className={navLinkClassMobile} onClick={() => setOpen(false)}>Contact Us</NavLink>
-        <NavLink to="login" className={navLinkClassMobile} onClick={() => setOpen(false)}>Log in</NavLink>
-        <NavLink to="/login" className={navLinkClassMobile} onClick={() => setOpen(false)}>Sign up</NavLink>
+        {!loading && (
+        !isAuth ? (
+          <>
+            <NavLink
+              to="login"
+              className={navLinkClassMobile}
+              onClick={() => setOpen(false)}
+            >
+              Log in
+            </NavLink>
+
+            <NavLink
+              to="signup"
+              className={navLinkClassMobile}
+              onClick={() => setOpen(false)}
+            >
+              Sign up
+            </NavLink>
+          </>
+        ) : (
+          <>
+        <NavLink
+          to="profile"
+          className={navLinkClassMobile}
+          onClick={() => setOpen(false)}
+        >
+          Profile
+        </NavLink>
+
+        <button
+          className="mr-auto hover:text-yellow-700 cursor-pointer"
+          onClick={() => {
+            handleLogout();
+            setOpen(false);
+          }}
+        >
+        Logout
+      </button>
+    </>
+  )
+)}
       </div>
     </>
   );

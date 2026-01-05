@@ -17,7 +17,12 @@ export default function Rooms() {
   React.useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await fetch("/api/rooms");
+        const res = await fetch("/api/rooms", {
+          headers: {
+            "x-api-key": import.meta.env.VITE_API_KEY,
+          },
+          credentials: "include",
+        });
         
         if (!res.ok) {
           throw new Error("Failed to load rooms");
