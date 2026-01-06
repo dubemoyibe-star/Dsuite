@@ -17,6 +17,7 @@ import Profile from './pages/Profile.jsx';
 import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import NotFound from './pages/NotFound.jsx';
+import BookingSuccess from './pages/BookingSuccess.jsx';
 
 export default function App() {
   return (
@@ -33,15 +34,17 @@ export default function App() {
             <Route path="rooms/:id" element={<RoomDetail />} />
             <Route path="faqs" element={<FaqsPage />} />
             <Route path="contact-us" element={<ContactUs />} />
+          
 
             {/* PROTECTED */}
             <Route element={<ProtectedRoute />}>
-              <Route path="checkout" element={<Checkout />} />
+              <Route path="checkout/:id" element={<Checkout />} />
               <Route path="profile" element={<Profile />} />
             </Route>
           </Route>
 
           {/* ===== AUTH PAGES (NO HEADER / FOOTER) ===== */}
+          <Route path='/booking-success' element={<BookingSuccess />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
 

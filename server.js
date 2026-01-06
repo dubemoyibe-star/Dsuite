@@ -2,7 +2,7 @@ import express from 'express';
 import "dotenv/config";
 import { roomsRouter } from './routes/roomsRoute.js';
 import { authRouter } from './routes/authRoute.js';
-import { checkoutRouter } from './routes/checkoutRoute.js';
+import { bookingsRouter } from './routes/bookingsRoute.js';
 import { meRouter } from './routes/meRouter.js';
 import session from 'express-session';
 import { apiKeyAuth } from './middleware/apiKeyAuth.js';
@@ -38,7 +38,7 @@ app.use('/api/auth/me', meRouter);
 
 app.use('/api', apiKeyAuth);
 app.use('/api/rooms', roomsRouter);
-app.use('/api/checkout', checkoutRouter)
+app.use('/api/bookings', bookingsRouter)
 
 
 app.listen(PORT, () => {

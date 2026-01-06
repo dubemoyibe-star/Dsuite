@@ -85,7 +85,6 @@ export default function AuthForm({ mode }) {
         onSubmit={handleSubmit}
         className="bg-gray-50 sm:rounded-2xl shadow-xl p-6 lg:p-8 flex flex-col gap-4 max-w-lg mx-auto h-full"
       >
-        {/* Logo  */}
         <Link to="/" className="flex justify-center mb-2">
           <div className="h-18 w-18 flex items-center justify-center rounded-full bg-yellow-100 shadow-sm shadow-gray-200">
             <img src={logo} alt="Logo" className="w-full h-full object-contain" />
@@ -109,7 +108,6 @@ export default function AuthForm({ mode }) {
           </p>
         )}
 
-        {/* Name */}
         {isSignUp ? <div className="flex flex-col gap-1">
           <label htmlFor="name" className=" text-sm font-medium text-gray-700">
             Full Name
@@ -126,7 +124,6 @@ export default function AuthForm({ mode }) {
           />
         </div> : null}
 
-        {/* Username */}
          <div className="flex flex-col gap-1">
           <label htmlFor="username" className="text-sm font-medium text-gray-700">
             Username

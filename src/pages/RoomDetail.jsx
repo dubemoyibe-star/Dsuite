@@ -90,11 +90,15 @@ export default function RoomDetail() {
                   {name}
                 </span>
                 <p className="font-medium text-3xl lg:text-4xl pt-4 text-gray-800">₦{price_per_night.toLocaleString()} <span className="font-light text-lg font-sans">/night</span></p>
-                <Link to="/checkout" className="w-full mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  
+                <Link to={`/checkout/${id}`} className="w-full mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  
                 hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300 text-center"><button>Book Now</button></Link>
               </div>
             </div>
           </div>
+
+          <Link to="/rooms" className="flex items-center justify-center py-2 border-y-1 border-gray-300  mt-4 lg:mt-8 text-gray-700 text-lg">
+          <span className="text-2xl text-yellow-700">←</span> Back to all rooms
+          </Link>
 
           <article className="py-16 px-4 lg:px-8 border-b-1 border-gray-300">
             <h1 className="text-4xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-5xl">{name}</h1>
