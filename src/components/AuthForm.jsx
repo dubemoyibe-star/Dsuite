@@ -140,7 +140,6 @@ export default function AuthForm({ mode }) {
           />
         </div>
 
-        {/* Email */}
         {isSignUp ? <div className="flex flex-col gap-1">
           <label htmlFor="email" className="text-sm font-medium text-gray-700">
             Email Address
@@ -157,7 +156,6 @@ export default function AuthForm({ mode }) {
           />
         </div> : null}
 
-        {/* Password */}
         <div className="flex flex-col gap-1">
           <label htmlFor="password" className="text-sm  font-medium text-gray-700">
             Password

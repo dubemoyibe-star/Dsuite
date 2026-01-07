@@ -29,7 +29,6 @@ export default function App() {
         <ScrollToTop />
 
         <Routes>
-          {/* ===== ROUTES WITH HEADER + FOOTER ===== */}
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
@@ -38,8 +37,6 @@ export default function App() {
             <Route path="faqs" element={<FaqsPage />} />
             <Route path="contact-us" element={<ContactUs />} />
           
-
-            {/* PROTECTED */}
             <Route element={<ProtectedRoute />}>
               <Route path="checkout/:id" element={<Checkout />} />
               <Route path="profile" element={<Profile />} />
@@ -51,13 +48,10 @@ export default function App() {
 
           </Route>
 
-          
-          {/* ===== AUTH PAGES (NO HEADER / FOOTER) ===== */}
           <Route path='/booking-success' element={<BookingSuccess />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
 
-          {/* ===== FALLBACK ===== */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

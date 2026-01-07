@@ -14,6 +14,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "bcrypt": "^6.0.0",
+    "connect-redis": "^9.0.0",
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "express-session": "^1.18.2",
@@ -21,6 +22,7 @@
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.11.0",
+    "redis": "^5.10.0",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
     "tailwindcss": "^4.1.18",

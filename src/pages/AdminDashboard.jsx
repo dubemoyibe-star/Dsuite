@@ -3,24 +3,29 @@ import { AuthContext } from "../contexts/AuthContext";
 
 export default function AdminDashboard() {
   const [bookings, setBookings] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [roomInputs, setRoomInputs] = useState({}); 
-  const { user } = useContext(AuthContext)
+  const [roomInputs, setRoomInputs] = useState({});
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    const fetchAllBookings = async () => {
+    const fetchData = async () => {
       try {
-        const res = await fetch("/api/bookings/admin", {
-          credentials: "include",
-        });
+        const [bookingsRes, messagesRes] = await Promise.all([
+          fetch("/api/bookings/admin", { credentials: "include" }),
+          fetch("/api/admin/messages", { credentials: "include" }),
+        ]);
 
-        if (!res.ok) {
-          throw new Error("Failed to load bookings");
+        if (!bookingsRes.ok || !messagesRes.ok) {
+          throw new Error("Failed to load admin data");
         }
 
-        const data = await res.json();
-        setBookings(data);
+        const bookingsData = await bookingsRes.json();
+        const messagesData = await messagesRes.json();
+
+        setBookings(bookingsData);
+        setMessages(messagesData);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -28,23 +33,49 @@ export default function AdminDashboard() {
       }
     };
 
-    fetchAllBookings();
+    fetchData();
   }, []);
 
-  const cancelBooking = async (bookingId) => {
-    if (!confirm("Cancel this booking?")) {
-      return
-    };
-
+  const markAsRead = async (id) => {
     try {
-      const res = await fetch(`/api/bookings/cancel/${bookingId}`, {
+      await fetch(`/api/admin/messages/${id}`, {
         method: "PATCH",
         credentials: "include",
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to cancel booking");
-      }
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === id ? { ...msg, status: "read" } : msg
+        )
+      );
+    } catch {
+      alert("Failed to mark message as read");
+    }
+  };
+
+  const deleteMessage = async (id) => {
+    if (!confirm("Delete this message?")) return;
+
+    try {
+      await fetch(`/api/admin/messages/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      setMessages((prev) => prev.filter((msg) => msg.id !== id));
+    } catch {
+      alert("Failed to delete message");
+    }
+  };
+
+  const cancelBooking = async (bookingId) => {
+    if (!confirm("Cancel this booking?")) return;
+
+    try {
+      await fetch(`/api/bookings/cancel/${bookingId}`, {
+        method: "PATCH",
+        credentials: "include",
+      });
 
       setBookings((prev) =>
         prev.map((booking) =>
@@ -53,38 +84,26 @@ export default function AdminDashboard() {
             : booking
         )
       );
-    } catch (err) {
-      alert(err.message);
+    } catch {
+      alert("Failed to cancel booking");
     }
   };
 
   const handleRoomInput = (bookingId, value) => {
-    setRoomInputs((prev) => ({
-      ...prev,
-      [bookingId]: value,
-    }));
+    setRoomInputs((prev) => ({ ...prev, [bookingId]: value }));
   };
 
   const assignRoom = async (bookingId) => {
     const roomNumber = roomInputs[bookingId];
-
-    if (!roomNumber) {
-      return alert("Enter a room number first");
-    }
+    if (!roomNumber) return alert("Enter a room number");
 
     try {
-      const res = await fetch(`/api/bookings/admin/assign-room/${bookingId}`, {
+      await fetch(`/api/bookings/admin/assign-room/${bookingId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify({
-          physical_room_number: roomNumber,
-        }),
+        body: JSON.stringify({ physical_room_number: roomNumber }),
       });
-
-      if (!res.ok) {
-        throw new Error("Failed to assign room");
-      }
 
       setBookings((prev) =>
         prev.map((booking) =>
@@ -94,12 +113,9 @@ export default function AdminDashboard() {
         )
       );
 
-      setRoomInputs((prev) => ({
-        ...prev,
-        [bookingId]: "",
-      }));
-    } catch (err) {
-      alert(err.message);
+      setRoomInputs((prev) => ({ ...prev, [bookingId]: "" }));
+    } catch {
+      alert("Failed to assign room");
     }
   };
 
@@ -112,97 +128,152 @@ export default function AdminDashboard() {
   }
 
   return (
-    <section className="mx-auto px-4 pt-32 pb-28 bg-gray-100 lg:px-16">
-      <h1 className="text-3xl font-serif font-bold mb-8 text-gray-800">
+    <section className="mx-auto px-4 pt-32 pb-28 bg-gray-100 lg:px-16 space-y-16">
+      <h1 className="text-3xl font-serif font-bold text-gray-800">
         Admin Dashboard
       </h1>
 
-      {bookings.length === 0 ? (
-        <p className="text-gray-600">No bookings found.</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {bookings.map((booking) => (
-            <div
-              key={booking.id}
-              className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col sm:flex-row"
-            >
-              <img
-                src={`/assets/${booking.room_image}`}
-                alt={booking.room_name}
-                className="w-full sm:w-40 h-full object-cover"
-              />
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Bookings</h2>
 
-              <div className="p-5 flex-1">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-serif font-bold text-lg">
-                    {booking.room_name}
-                  </h3>
+        {bookings.length === 0 ? (
+          <p className="text-gray-600">No bookings found.</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {bookings.map((booking) => (
+              <div
+                key={booking.id}
+                className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col sm:flex-row"
+              >
+                <img
+                  src={`/assets/${booking.room_image}`}
+                  alt={booking.room_name}
+                  className="w-full sm:w-40 h-full object-cover"
+                />
 
-                  <span
-                    className={`text-xs font-semibold px-3 py-1 rounded-full
-                      ${
+                <div className="p-5 flex-1">
+                  <div className="flex justify-between mb-2">
+                    <h3 className="font-serif font-bold">
+                      {booking.room_name}
+                    </h3>
+                    <span
+                      className={`text-xs px-3 py-1 rounded-full font-semibold ${
                         booking.status === "cancelled"
                           ? "bg-red-100 text-red-700"
                           : "bg-green-100 text-green-700"
-                      }
-                    `}
-                  >
-                    {booking.status.toUpperCase()}
-                  </span>
-                </div>
+                      }`}
+                    >
+                      {booking.status.toUpperCase()}
+                    </span>
+                  </div>
 
-                <p className="text-sm text-gray-600">
-                  {booking.check_in} → {booking.check_out}
-                </p>
-
-                <div className="mt-3 text-sm text-gray-700 space-y-1">
-                  <p>Username: {user.username}</p>
-                  <p>User ID: {booking.user_id}</p>
-                  <p>Nights: {booking.nights}</p>
-                  <p className="font-semibold">
-                    ₦{booking.total_price.toLocaleString()}
+                  <p className="text-sm text-gray-600">
+                    {booking.check_in} → {booking.check_out}
                   </p>
+
+                  <div className="mt-2 text-sm space-y-1">
+                    <p>Username: {user.username}</p>
+                    <p>User ID: {booking.user_id}</p>
+                    <p>Nights: {booking.nights}</p>
+                    <p className="font-semibold">
+                      ₦{booking.total_price.toLocaleString()}
+                    </p>
+                  </div>
 
                   {booking.status !== "cancelled" && (
                     booking.physical_room_number ? (
-                      <p className="text-xs text-gray-500">
-                        Room Allocation: {booking.physical_room_number}
+                      <p className="mt-2 text-xs text-gray-500">
+                        Room: {booking.physical_room_number}
                       </p>
                     ) : (
-                      <div className="flex gap-2 mt-2">
+                      <div className="flex gap-2 mt-3">
                         <input
-                          type="text"
-                          placeholder="Room #"
                           value={roomInputs[booking.id] || ""}
                           onChange={(e) =>
                             handleRoomInput(booking.id, e.target.value)
                           }
+                          placeholder="Room #"
                           className="border px-2 py-1 text-sm rounded w-24"
                         />
                         <button
                           onClick={() => assignRoom(booking.id)}
-                          className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 cursor-pointer"
+                          className="bg-blue-600 text-white px-3 py-1 rounded text-sm"
                         >
                           Assign
                         </button>
                       </div>
                     )
                   )}
-                </div>
 
-                {booking.status !== "cancelled" && (
-                  <button
-                    onClick={() => cancelBooking(booking.id)}
-                    className="mt-4 bg-red-600 text-white px-4 py-2 rounded-md text-sm hover:bg-red-700 cursor-pointer"
-                  >
-                    Cancel Booking
-                  </button>
-                )}
+                  {booking.status !== "cancelled" && (
+                    <button
+                      onClick={() => cancelBooking(booking.id)}
+                      className="mt-4 bg-red-600 text-white px-4 py-2 rounded text-sm"
+                    >
+                      Cancel Booking
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Messages</h2>
+
+        {messages.length === 0 ? (
+          <p className="text-gray-600">No messages yet.</p>
+        ) : (
+          <div className="space-y-4">
+            {messages.map((msg) => (
+              <div
+                key={msg.id}
+                className={`bg-white rounded-lg p-5 shadow-sm border ${
+                  msg.status === "new"
+                    ? "border-yellow-400"
+                    : "border-gray-200"
+                }`}
+              >
+                <div className="flex justify-between items-start">
+                  <div>
+                    <p className="font-semibold text-gray-800">
+                      {msg.name}{" "}
+                      <span className="text-sm text-gray-500">
+                        ({msg.email})
+                      </span>
+                    </p>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {msg.message}
+                    </p>
+                    <p className="text-xs text-gray-400 mt-2">
+                      {new Date(msg.created_at).toLocaleString()}
+                    </p>
+                  </div>
+
+                  <div className="flex gap-2">
+                    {msg.status === "new" ? (
+                      <button
+                        onClick={() => markAsRead(msg.id)}
+                        className="lg:py-2 lg:px-4 text-xs bg-green-600 text-white px-3 py-1 rounded cursor-pointer"
+                      >
+                        Mark Read
+                      </button>
+                    ): <span className="text-sm bg-purple-500 rounded-full px-2 text-white flex items-center">read</span>}
+                    <button
+                      onClick={() => deleteMessage(msg.id)}
+                      className="lg:py-2 lg:px-4 text-xs bg-red-600 text-white px-3 py-1 rounded cursor-pointer"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 }
