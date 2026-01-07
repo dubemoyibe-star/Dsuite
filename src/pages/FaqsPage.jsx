@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "What payment methods are supported?",
     answer:
-      "We currently support secure payments on arrival at our hotel. All transactions are properly documented to nure accountability.",
+      "We currently support secure payments on arrival at our hotel. All transactions are properly documented to ensure accountability.",
   },
   {
     question: "How do I contact support?",
@@ -86,7 +86,7 @@ export default function FAQ() {
           Still have questions?
         </p>
         <a
-          href="/contact"
+          href="/contact-us"
           className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold transition"
         >
           Contact Support

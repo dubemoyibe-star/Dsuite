@@ -1,12 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const { logout } = useContext(AuthContext)
+
+  const handleLogout = async () => {
+    try {
+       await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      await logout();
+    navigate("/", { replace: true });
+    } catch (error) {
+      console.log(error)
+    }
+ 
+  };
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -75,7 +91,8 @@ export default function Profile() {
           <h1 className="text-2xl font-serif font-bold">{user.name}</h1>
           <p className="text-gray-600 text-sm">{user.email}</p>
         </div>
-
+        <div className="flex gap-2">
+          <button onClick={() => handleLogout()} className="bg-red-100 text-red-700 font-bold rounded-full px-4 text-sm cursor-pointer">LOGOUT</button>
         <span
           className={`px-4 py-1 rounded-full text-sm font-semibold w-fit ${
             user.role === "admin"
@@ -85,6 +102,7 @@ export default function Profile() {
         >
           {user.role.toUpperCase()}
         </span>
+        </div>
       </div>
 
       <h2 className="text-2xl font-serif font-bold mb-6 text-gray-800">My Bookings</h2>

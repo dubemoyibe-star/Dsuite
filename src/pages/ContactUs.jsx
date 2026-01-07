@@ -113,7 +113,7 @@ export default function Contact() {
             <div>
               <p className="font-medium text-gray-800">Email</p>
               <a
-                href="mailto:dubemoyibe@gmail.com"
+                href="mailto:dubemoyibe@gmail.com?subject=Hotel%20Inquiry&body=Hello%20Dsuite%20Team,%0A%0AI%20would%20like%20to%20make%20an%20inquiry%20about..."
                 className="text-gray-600 hover:text-blue-600 transition"
               >
                 dubemoyibe@gmail.com
