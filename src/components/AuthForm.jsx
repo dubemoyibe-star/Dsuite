@@ -63,7 +63,7 @@ export default function AuthForm({ mode }) {
     } catch (err) {
       console.log(err);
       setError(
-        err.name === "TypeError"
+        err.name === "TypeError" || "Failed to execute 'json' on 'Response': Unexpected end of JSON input"
         ? "Something went wrong. Please check your connection."
         : err.message || "Something went wrong."
       );

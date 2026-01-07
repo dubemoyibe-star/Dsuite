@@ -26,14 +26,14 @@ export default function BookingSuccess(){
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/"
-            className="px-6 py-3 rounded-md border border-yellow-700 text-yellow-700 font-semibold hover:bg-yellow-700 hover:text-white transition"
+            className="w-full px-6 py-3 rounded-md border border-yellow-700 text-yellow-700 font-semibold hover:bg-yellow-700 hover:text-white transition"
           >
             Go to Home
           </Link>
 
           <Link
             to="/profile"
-            className="px-6 py-3 rounded-md bg-yellow-700 text-white font-semibold hover:bg-yellow-800 transition"
+            className="w-full px-6 py-3 rounded-md bg-yellow-700 text-white font-semibold hover:bg-yellow-800 transition"
           >
             View Profile
           </Link>

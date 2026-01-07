@@ -37,13 +37,13 @@ export async function registerUser(req, res) {
     }
 
 
-
     const hashedPassword = await bcrypt.hash(password, 10);
     const result = await db.run(
       "INSERT INTO users (name, username, email, password) VALUES (?, ?, ?, ?)",
       [name, username, email, hashedPassword]
     );
     req.session.userId = result.lastID
+    req.session.role = "user"
     return res.status(201).json({ message: "Account created successfully" });
   }catch (err) {
     console.error("Error registering user:", err);
@@ -76,6 +76,7 @@ export async function loginUser(req, res) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
     req.session.userId = user.id
+    req.session.role = user.role
     res.status(200).json({ message: "Login successful" });
   }catch (err) {
     console.error("Error logging in user:", err.message);

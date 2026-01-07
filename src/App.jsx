@@ -18,6 +18,9 @@ import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import NotFound from './pages/NotFound.jsx';
 import BookingSuccess from './pages/BookingSuccess.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
+import AdminRoute from './components/AdminRoute.jsx';
+
 
 export default function App() {
   return (
@@ -41,8 +44,14 @@ export default function App() {
               <Route path="checkout/:id" element={<Checkout />} />
               <Route path="profile" element={<Profile />} />
             </Route>
+
+            <Route element={<AdminRoute />}>
+            <Route path="admin" element={<AdminDashboard />} />
           </Route>
 
+          </Route>
+
+          
           {/* ===== AUTH PAGES (NO HEADER / FOOTER) ===== */}
           <Route path='/booking-success' element={<BookingSuccess />} />
           <Route path="login" element={<Login />} />

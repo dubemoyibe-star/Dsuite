@@ -1,16 +1,88 @@
-# React + Vite
+# Hotel Booking Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack hotel booking application that allows users to browse rooms, make secure bookings, and manage their reservations, while providing administrators with powerful tools to oversee bookings and room allocations.
 
-Currently, two official plugins are available:
+This project was built to model how a real hotel reservation system works in production, with a strong focus on authentication, authorization, data integrity, and admin workflows.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### User Features
+- User authentication (sign up, login, logout) with session-based auth
+- Browse available room types with detailed descriptions and pricing
+- Book rooms by room type (not physical room numbers)
+- View personal booking history in a profile dashboard
+- Cancel bookings (status-based cancellation, not hard deletes)
+- Secure access to protected routes
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+###  Admin Features
+- Admin-only dashboard with full visibility of all bookings
+- Assign physical rooms to confirmed bookings
+- Cancel any booking when necessary
+- View booking status (paid, cancelled)
+- Prevent double assignment of physical rooms using database constraints
+- Role-based access control (admin vs user)
+
+---
+
+## System Design Highlights
+
+- **Room Type vs Physical Room separation**  
+  Users book *room types* (e.g. Deluxe, Standard), while admins later assign *physical rooms* (e.g. Room 101).  
+  This mirrors how real hotels operate and prevents overbooking errors.
+
+- **Data Integrity First**  
+  Physical room numbers are enforced as `UNIQUE` at the database level, ensuring that no two bookings can be assigned the same room.
+
+- **Status-Based Booking Management**  
+  Bookings are cancelled by updating status instead of deleting records, preserving history and ensuring auditability.
+
+- **Role-Based Authorization**  
+  Access to admin routes and actions is strictly controlled using session roles.
+
+---
+
+## Tech Stack
+
+### Frontend
+- React
+- React Router
+- Tailwind CSS
+- Fetch API
+
+### Backend
+- Node.js
+- Express
+- SQLite
+- Session-based authentication
+
+---
+
+## Security & Access Control
+
+- Session-based authentication using HTTP-only cookies
+- Protected routes for authenticated users
+- Admin-only middleware for sensitive operations
+- Ownership checks to ensure users can only manage their own bookings
+
+---
+
+## Future Improvements
+- Automatic physical room allocation
+- Date-based availability checking
+- Payment gateway integration
+- Booking analytics for admins
+- Improved admin search and filtering
+
+---
+
+## Purpose
+
+This project was built to demonstrate real-world backend and frontend patterns, including:
+- clean API design
+- secure authentication flows
+- admin-user role separation
+- database-driven business rules

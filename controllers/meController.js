@@ -12,7 +12,7 @@ export async function getCurrentUser(req, res) {
     
     
     
-    const user = await db.get('SELECT id, username, email FROM users WHERE id = ?', [userId]);
+    const user = await db.get('SELECT id, name, role,  username, email FROM users WHERE id = ?', [userId]);
      if (!user) {
       req.session.destroy(() => {});
       return res.status(200).json({ isLoggedIn: false, user: null });
