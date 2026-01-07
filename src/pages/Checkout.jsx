@@ -110,7 +110,7 @@ export default function Checkout() {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-4 pb-28 pt-32 bg-gray-100">
+    <section className="lg:px-16 mx-auto px-4 pb-28 pt-32 bg-gray-100">
 
       <Link
         to={`/rooms/${roomId}`}
