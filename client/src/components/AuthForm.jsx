@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function AuthForm({ mode }) {
 
   const BASE = import.meta.env.VITE_API_BASE_URL;
-  const { login, isAuth, refreshUser } = React.useContext(AuthContext);
+  const { isAuth, refreshUser } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from || "/";
@@ -58,12 +58,10 @@ export default function AuthForm({ mode }) {
         setSuccess(false);
         throw new Error(data.message);
       }
-      setLoading(false)
       console.log( isSignUp ? "user registered" : "user logged in" );
 
       setSuccess(true);
-      refreshUser()
-      login()
+      await refreshUser()
     } catch (err) {
       console.log(err);
       setError(

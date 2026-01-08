@@ -34,10 +34,6 @@ const fetchMe = async () => {
 
   
 
-  const login = async () => {
-    await fetchMe();
-  };
-
   const logout = async () => {
     await fetch(`${BASE}/api/auth/logout`, {
       method: "POST",
@@ -57,7 +53,7 @@ const fetchMe = async () => {
  };
 
   return (
-    <AuthContext.Provider value={{ user, loading,  isAuth: user ? true : false , login, logout, refreshUser}}>
+    <AuthContext.Provider value={{ user, loading,  logout, refreshUser, isAuth: user ? true : false  }}>
       {children}
     </AuthContext.Provider>
   );
