@@ -19,7 +19,6 @@ await ensureDatabase()
 
 const app = express();
 
-
 const PORT = process.env.PORT || 8000;
 const NODE_ENV = process.env.NODE_ENV || "development";
 const allowedOrigin = process.env.FRONTEND_URL
