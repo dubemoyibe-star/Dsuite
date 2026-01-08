@@ -46,8 +46,18 @@ const fetchMe = async () => {
     setUser(null);
   };
 
+  const refreshUser = async () => {
+  const res = await fetch(`${BASE}/api/auth/me`, {
+    credentials: "include",
+  });
+  if (res.ok) {
+    const data = await res.json();
+    setUser(data.user);
+  }
+ };
+
   return (
-    <AuthContext.Provider value={{ user, loading,  isAuth: user ? true : false , login, logout}}>
+    <AuthContext.Provider value={{ user, loading,  isAuth: user ? true : false , login, logout, refreshUser}}>
       {children}
     </AuthContext.Provider>
   );
