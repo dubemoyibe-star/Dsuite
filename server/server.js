@@ -4,7 +4,6 @@ import session from "express-session";
 import { RedisStore } from "connect-redis";
 import redisClient from "./config/redis.js";
 import cors from "cors";
-import fs from "fs";
 import { ensureDatabase } from "./initDb.js";
 
 import { roomsRouter } from "./routes/roomsRoute.js";
@@ -26,8 +25,6 @@ app.use(
   cors({
     origin: allowedOrigin, 
     credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
