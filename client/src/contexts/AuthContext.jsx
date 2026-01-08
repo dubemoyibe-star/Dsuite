@@ -47,7 +47,7 @@ const fetchMe = async () => {
   };
 
   const refreshUser = async () => {
-  const res = await fetch(`${BASE}/api/auth/me`, {
+  const res = await fetch(`${BASE}/api/me`, {
     credentials: "include",
   });
   if (res.ok) {
