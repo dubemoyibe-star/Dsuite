@@ -3,12 +3,13 @@ import { createContext, useState, useEffect } from "react";
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
 const fetchMe = async () => {
       try {
-        const res = await fetch("/api/auth/me", {
+        const res = await fetch(`${BASE}/api/auth/me`, {
           credentials: "include",
         });
 
@@ -38,7 +39,7 @@ const fetchMe = async () => {
   };
 
   const logout = async () => {
-    await fetch("/api/auth/logout", {
+    await fetch(`${BASE}/api/auth/logout`, {
       method: "POST",
       credentials: "include",
     });

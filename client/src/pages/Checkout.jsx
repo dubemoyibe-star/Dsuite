@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 export default function Checkout() {
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const { id: roomId } = useParams();
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ export default function Checkout() {
   useEffect(() => {
     const fetchRoom = async () => {
       try {
-        const res = await fetch(`/api/rooms/${roomId}`, {
+        const res = await fetch(`${BASE}/api/rooms/${roomId}`, {
           headers: {
             "x-api-key": import.meta.env.VITE_API_KEY,
           },
@@ -74,7 +75,7 @@ export default function Checkout() {
     setError("");
 
     try {
-      const res = await fetch("/api/bookings/checkout", {
+      const res = await fetch(`${BASE}/api/bookings/checkout`, {
         method: "POST",
         credentials: "include",
         headers: { 

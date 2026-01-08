@@ -2,6 +2,7 @@ import { useState , useEffect} from "react";
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,7 +37,7 @@ export default function Contact() {
     setSuccess("");
 
     try {
-      const res = await fetch("/api/messages", {
+      const res = await fetch(`${BASE}/api/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +62,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 pt-36 pb-12 md:px-10">
+    <div className="min-h-screen bg-gray-200 px-4 pt-36 pb-12 md:px-10">
       <div className="max-w-4xl mx-auto text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-800">
           Contact Us

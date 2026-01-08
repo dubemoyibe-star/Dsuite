@@ -42,7 +42,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 px-4 pt-36 pb-24 md:px-10">
+    <section className="min-h-screen bg-gray-200 px-4 pt-36 pb-24 md:px-10">
       <div className="max-w-4xl mx-auto text-center mb-14">
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-800">
           Frequently Asked Questions

@@ -7,13 +7,15 @@ import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from '../contexts/AuthContext';
 
 export default function Header() {
+
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate()
   const [open, setOpen] = React.useState(false);
   const { isAuth, loading,  logout, user } = React.useContext(AuthContext);
 
   const handleLogout = async () => {
     try {
-       await fetch("/api/auth/logout", {
+       await fetch(`${BASE}/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });

@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo.png'; 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export default function Footer() {
 
@@ -38,7 +38,7 @@ export default function Footer() {
             <h4 className='mb-4 text-lg font-bold font-serif text-yellow-700 text-center md:text-left'>Support</h4>
             <ul className='flex md:flex-col justify-center  gap-4'>
               <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>Help Center</li>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>Contact Support</li>
+              <Link to="/contact-us"><li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>Contact Support</li></Link>
               <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>Policies</li>
             </ul>
         </div>
@@ -46,8 +46,18 @@ export default function Footer() {
         <div className='p-4 md:w-1/4'>
             <h4 className='mb-4 text-lg font-bold font-serif text-yellow-700 text-center md:text-left'>Contact</h4>
             <ul className='flex flex-col items-center  md:items-start gap-4'>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>dubemoyibe@gmail.com</li>
-              <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>+234 70 2613 7565</li>
+              <a
+              href="mailto:dubemoyibe@gmail.com?subject=Hotel%20Inquiry&body=Hello%20Dsuite%20Team,%0A%0AI%20would%20like%20to%20make%20an%20inquiry%20about..."
+              ><li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>
+                dubemoyibe@gmail.com
+              </li></a>
+              <a
+                href="https://wa.me/2347026137565"
+                target="_blank"
+                rel="noreferrer"
+              ><li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>
+                +234 70 2613 7565
+              </li></a>
               <li className='font-light text-yellow-900 hover:text-gray-200 active:text-gray-200 cursor-pointer'>123 MaryLand, Lekki , Nigeria</li>
             </ul>
         </div>

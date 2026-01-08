@@ -10,6 +10,7 @@ import { GoClock } from "react-icons/go";
 import { GiTowel } from "react-icons/gi";
 
 export default function Rooms() {
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const [rooms, setRooms] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState("");
@@ -17,7 +18,7 @@ export default function Rooms() {
   React.useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await fetch("/api/rooms", {
+        const res = await fetch(`${BASE}/api/rooms`, {
           headers: {
             "x-api-key": import.meta.env.VITE_API_KEY,
           },

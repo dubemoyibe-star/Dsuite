@@ -11,6 +11,7 @@ import { GiTowel } from "react-icons/gi";
 
 
 export default function RoomDetail() {
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const { id } = useParams();
   const [room, setRoom] = react.useState(null);
   const [loading, setLoading] = react.useState(true);
@@ -19,7 +20,7 @@ export default function RoomDetail() {
   react.useEffect(() => {
     const fetchRoomDetail = async () => {
       try {
-        const res = await fetch(`/api/rooms/${id}`, {
+        const res = await fetch(`${BASE}/api/rooms/${id}`, {
           headers: {
             "x-api-key": import.meta.env.VITE_API_KEY,
           },

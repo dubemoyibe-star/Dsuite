@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 export default function AdminDashboard() {
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const [bookings, setBookings] = useState([]);
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,8 +14,8 @@ export default function AdminDashboard() {
     const fetchData = async () => {
       try {
         const [bookingsRes, messagesRes] = await Promise.all([
-          fetch("/api/bookings/admin", { credentials: "include" }),
-          fetch("/api/admin/messages", { credentials: "include" }),
+          fetch(`${BASE}/api/bookings/admin`, { credentials: "include" }),
+          fetch(`${BASE}/api/admin/messages`, { credentials: "include" }),
         ]);
 
         if (!bookingsRes.ok || !messagesRes.ok) {
@@ -38,7 +39,7 @@ export default function AdminDashboard() {
 
   const markAsRead = async (id) => {
     try {
-      await fetch(`/api/admin/messages/${id}`, {
+      await fetch(`${BASE}/api/admin/messages/${id}`, {
         method: "PATCH",
         credentials: "include",
       });
@@ -57,7 +58,7 @@ export default function AdminDashboard() {
     if (!confirm("Delete this message?")) return;
 
     try {
-      await fetch(`/api/admin/messages/${id}`, {
+      await fetch(`${BASE}/api/admin/messages/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -72,7 +73,7 @@ export default function AdminDashboard() {
     if (!confirm("Cancel this booking?")) return;
 
     try {
-      await fetch(`/api/bookings/cancel/${bookingId}`, {
+      await fetch(`${BASE}/api/bookings/cancel/${bookingId}`, {
         method: "PATCH",
         credentials: "include",
       });
@@ -98,7 +99,7 @@ export default function AdminDashboard() {
     if (!roomNumber) return alert("Enter a room number");
 
     try {
-      await fetch(`/api/bookings/admin/assign-room/${bookingId}`, {
+      await fetch(`${BASE}/api/bookings/admin/assign-room/${bookingId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

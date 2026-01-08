@@ -6,6 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 
 export default function AuthForm({ mode }) {
+
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const { login, isAuth } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,7 +41,7 @@ export default function AuthForm({ mode }) {
     setError("");
     setLoading(true);
 
-    const endpoint = isSignUp ? "/api/auth/register" : "/api/auth/login";
+    const endpoint = isSignUp ? `${BASE}/api/auth/register` : `${BASE}/api/auth/login`;
 
     try {
       const res = await fetch(endpoint, {

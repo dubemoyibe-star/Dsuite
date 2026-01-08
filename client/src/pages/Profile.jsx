@@ -4,6 +4,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { AuthContext } from "../contexts/AuthContext";
 
 export default function Profile() {
+  const BASE = import.meta.env.VITE_API_BASE_URL;
   const [user, setUser] = useState(null);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ export default function Profile() {
 
   const handleLogout = async () => {
     try {
-       await fetch("/api/auth/logout", {
+       await fetch(`${BASE}/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });
@@ -28,8 +29,8 @@ export default function Profile() {
     const fetchProfile = async () => {
       try {
         const [userRes, bookingsRes] = await Promise.all([
-          fetch("/api/auth/me", { credentials: "include" }),
-          fetch("/api/bookings/me", {
+          fetch(`${BASE}/api/auth/me`, { credentials: "include" }),
+          fetch(`${BASE}/api/bookings/me`, {
             headers: { "x-api-key": import.meta.env.VITE_API_KEY },
             credentials: "include",
           }),
@@ -59,7 +60,7 @@ export default function Profile() {
       return;
     }
     try {
-      const res = await fetch(`/api/bookings/cancel/${bookingId}`, {
+      const res = await fetch(`${BASE}/api/bookings/cancel/${bookingId}`, {
         method: "PATCH",
         credentials: "include",
         headers: {
