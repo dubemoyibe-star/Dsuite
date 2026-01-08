@@ -8,6 +8,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
 const fetchMe = async () => {
+  setLoading(true)
       try {
         const res = await fetch(`${BASE}/api/me`, {
           credentials: "include",
@@ -43,14 +44,9 @@ const fetchMe = async () => {
   };
 
   const refreshUser = async () => {
-  const res = await fetch(`${BASE}/api/me`, {
-    credentials: "include",
-  });
-  if (res.ok) {
-    const data = await res.json();
-    setUser(data.user);
-  }
- };
+  setLoading(true);
+  await fetchMe();
+};
 
   return (
     <AuthContext.Provider value={{ user, loading,  logout, refreshUser, isAuth: user ? true : false  }}>
