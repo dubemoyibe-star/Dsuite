@@ -22,9 +22,6 @@ export default function Checkout() {
     const fetchRoom = async () => {
       try {
         const res = await fetch(`${BASE}/api/rooms/${roomId}`, {
-          headers: {
-            "x-api-key": import.meta.env.VITE_API_KEY,
-          },
           credentials: "include",
         });
         const data = await res.json();
@@ -80,7 +77,6 @@ export default function Checkout() {
         credentials: "include",
         headers: { 
           "Content-Type": "application/json",
-          "x-api-key": import.meta.env.VITE_API_KEY
         },
         body: JSON.stringify({
           room_id: roomId,

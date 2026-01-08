@@ -21,9 +21,6 @@ export default function RoomDetail() {
     const fetchRoomDetail = async () => {
       try {
         const res = await fetch(`${BASE}/api/rooms/${id}`, {
-          headers: {
-            "x-api-key": import.meta.env.VITE_API_KEY,
-          },
           credentials: "include",
         });
 

@@ -30,10 +30,7 @@ export default function Profile() {
       try {
         const [userRes, bookingsRes] = await Promise.all([
           fetch(`${BASE}/api/me`, { credentials: "include" }),
-          fetch(`${BASE}/api/bookings/me`, {
-            headers: { "x-api-key": import.meta.env.VITE_API_KEY },
-            credentials: "include",
-          }),
+          fetch(`${BASE}/api/bookings/me`, {credentials: "include",}),
         ]);
 
         if (!userRes.ok || !bookingsRes.ok) {
@@ -63,9 +60,6 @@ export default function Profile() {
       const res = await fetch(`${BASE}/api/bookings/cancel/${bookingId}`, {
         method: "PATCH",
         credentials: "include",
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
       });
 
       if (!res.ok) {
