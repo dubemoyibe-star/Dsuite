@@ -9,8 +9,8 @@ const __dirname = path.dirname(__filename);
 const dbPath =
   process.env.NODE_ENV === "production"
     ? process.env.DATABASE_PATH 
-    : path.join(__dirname, "./database.db"); 
-
+    : path.join(__dirname, "database.db"); 
+    
 export async function getDbConnection() {
   const db = await open({
     filename: dbPath,
