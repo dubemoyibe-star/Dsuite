@@ -11,7 +11,7 @@ export default function AuthForm({ mode }) {
   const { isAuth, refreshUser } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from || "/";
+  const from = location.state?.from || "/profile";
   const isSignUp = mode === "signup";
 
   const formDataInitialState = isSignUp
