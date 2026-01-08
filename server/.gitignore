@@ -24,13 +24,13 @@ dist-ssr
 *.sw?
 
 # SQLite
-*.db
-*.sqlite
-*.sqlite3
+# *.db
+# *.sqlite
+# *.sqlite3
 
 
 # BUT allow our main database
-!database.db
+# !database.db
 
 # Env files
 .env
