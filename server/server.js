@@ -17,13 +17,17 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 const NODE_ENV = process.env.NODE_ENV || "development";
-
+const allowedOrigin = process.env.FRONTEND_URL
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL, 
+    origin: allowedOrigin, 
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+
 
 app.use(express.json());
 
