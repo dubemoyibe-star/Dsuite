@@ -29,7 +29,7 @@ export default function Profile() {
     const fetchProfile = async () => {
       try {
         const [userRes, bookingsRes] = await Promise.all([
-          fetch(`${BASE}/api/auth/me`, { credentials: "include" }),
+          fetch(`${BASE}/api/me`, { credentials: "include" }),
           fetch(`${BASE}/api/bookings/me`, {
             headers: { "x-api-key": import.meta.env.VITE_API_KEY },
             credentials: "include",

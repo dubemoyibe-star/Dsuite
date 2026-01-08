@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
 
 const fetchMe = async () => {
       try {
-        const res = await fetch(`${BASE}/api/auth/me`, {
+        const res = await fetch(`${BASE}/api/me`, {
           credentials: "include",
         });
 
