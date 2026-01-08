@@ -13,7 +13,7 @@ import { meRouter } from "./routes/meRouter.js";
 import { messagesRouter } from "./routes/messagesRoute.js";
 import { adminMessagesRouter } from "./routes/adminMessagesRoute.js";
 // import { apiKeyAuth } from "./middleware/apiKeyAuth.js";
-
+console.log("CORS allowed origin:", process.env.FRONTEND_URL);
 await ensureDatabase()
 
 const app = express();
