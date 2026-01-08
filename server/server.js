@@ -4,6 +4,7 @@ import session from "express-session";
 import { RedisStore } from "connect-redis";
 import redisClient from "./config/redis.js";
 import cors from "cors";
+import fs from "fs";
 
 import { roomsRouter } from "./routes/roomsRoute.js";
 import { authRouter } from "./routes/authRoute.js";
@@ -15,6 +16,17 @@ import { adminMessagesRouter } from "./routes/adminMessagesRoute.js";
 
 const app = express();
 
+const PROD_DB_PATH = "/var/data/database.db";
+const SOURCE_DB_PATH = "./database.db";
+
+if (
+  process.env.NODE_ENV === "production" &&
+  !fs.existsSync(PROD_DB_PATH)
+) {
+  fs.mkdirSync("/var/data", { recursive: true });
+  fs.copyFileSync(SOURCE_DB_PATH, PROD_DB_PATH);
+  console.log("Database copied to Render persistent disk");
+}
 const PORT = process.env.PORT || 8000;
 const NODE_ENV = process.env.NODE_ENV || "development";
 const allowedOrigin = process.env.FRONTEND_URL
