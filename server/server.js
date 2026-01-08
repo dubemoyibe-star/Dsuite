@@ -47,7 +47,7 @@ app.use(
 );
 
 app.use("/api/auth", authRouter);
-app.use("/api//me", meRouter);
+app.use("/api/me", meRouter);
 
 // app.use("/api", apiKeyAuth);
 app.use("/api/rooms", roomsRouter);
