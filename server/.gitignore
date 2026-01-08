@@ -28,6 +28,10 @@ dist-ssr
 *.sqlite
 *.sqlite3
 
+
+# BUT allow our main database
+!database.db
+
 # Env files
 .env
 .env.local
