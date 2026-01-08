@@ -20,10 +20,7 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 
 app.use(
   cors({
-    origin:
-      NODE_ENV === "production"
-        ? process.env.FRONTEND_URL
-        : "http://localhost:5173",
+    origin: process.env.FRONTEND_URL, 
     credentials: true,
   })
 );
