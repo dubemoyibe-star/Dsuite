@@ -61,7 +61,8 @@ export default function AuthForm({ mode }) {
       console.log( isSignUp ? "user registered" : "user logged in" );
 
       setSuccess(true);
-      await refreshUser()
+      await refreshUser();
+      navigate(from, { replace: true });
     } catch (err) {
       console.log(err);
       setError(
@@ -74,12 +75,6 @@ export default function AuthForm({ mode }) {
       setLoading(false);
     }
   };
-
-  React.useEffect(() => {
-    if (isAuth) {
-      navigate(from, { replace: true });
-    }
-  }, [isAuth, navigate, from]);
 
   return (
     <section className={`${!isSignUp && "h-screen"} bg-gray-200 sm:py-4 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.75)),url('/assets/auth-bg.jpg')] bg-cover bg-center min-h-screen `}>
