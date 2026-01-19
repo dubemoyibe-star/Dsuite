@@ -4,10 +4,10 @@ import { BsTv } from "react-icons/bs";
 import { PiBowlFoodLight, PiBroom } from "react-icons/pi";
 import { IoSnowOutline, IoWifiOutline} from "react-icons/io5";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaCar } from "react-icons/fa";
 import { GoClock } from "react-icons/go";
 import { GiTowel } from "react-icons/gi";
+import Loading from "../components/Loading";
 
 export default function Rooms() {
   const BASE = import.meta.env.VITE_API_BASE_URL;
@@ -49,7 +49,7 @@ export default function Rooms() {
       <p className="pb-4 font-semibold text-gray-700 text-lg lg:text-xl  text-center">Explore our rooms thoughtfully designed to ensure maximum comfort.</p>
 
       {loading && (
-        <AiOutlineLoading3Quarters className="animate-spin text-yellow-700 w-8 h-8 pt-32 mx-auto" />
+        <Loading message="Loading rooms..." />
       )}
 
       {error && (

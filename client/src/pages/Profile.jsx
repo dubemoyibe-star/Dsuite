@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Loading from "../components/Loading";
 import { AuthContext } from "../contexts/AuthContext";
 
 export default function Profile() {
@@ -76,8 +76,12 @@ export default function Profile() {
     }
   };
 
-  if (loading) return <AiOutlineLoading3Quarters className="animate-spin text-yellow-700 w-8 h-8 pt-32 mx-auto" />
-  if (error) return <p className="text-center mt-32 text-red-600">{error}</p>;
+  if (loading){
+    return <Loading message="Loading Profile..."/>
+  }
+  if (error) {
+    return <p className="text-center mt-32 text-red-600">{error}</p>
+  }
 
   return (
     <section className="bg-gray-100 lg:px-16 mx-auto px-4 pt-32 pb-28">

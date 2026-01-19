@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Loading from "../components/Loading";
 
 export default function AdminDashboard() {
   const BASE = import.meta.env.VITE_API_BASE_URL;
@@ -120,10 +120,7 @@ export default function AdminDashboard() {
   };
 
   if (loading) {
-    return <div className="text-center my-100 flex gap-4 justify-center">
-      <AiOutlineLoading3Quarters className="text-yellow-700 animate-spin text-3xl" />
-      <p className="text-2xl font-bold">Loading admin dashboard...</p>
-      </div>;
+    return <Loading message="Loading admin dashboard..."/>
   }
 
   if (error) {

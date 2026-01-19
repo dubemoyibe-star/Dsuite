@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import Loading from "../components/Loading";
 
 export default function Checkout() {
   const BASE = import.meta.env.VITE_API_BASE_URL;
@@ -99,8 +100,8 @@ export default function Checkout() {
   };
 
   if (loading) {
-    return <p className="text-center mt-32">Loading checkout...</p>;
-  }
+      return <Loading message="Loading Checkout..." />
+    }
 
   if (error && !room) {
     return <p className="text-center mt-32 text-red-600">{error}</p>;

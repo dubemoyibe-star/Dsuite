@@ -1,6 +1,6 @@
 import react from "react";
 import { useParams, Link } from "react-router-dom";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Loading from "../components/Loading";
 import { FaCheck } from "react-icons/fa";
 import { IoSnowOutline, IoWifiOutline } from "react-icons/io5";
 import { HiOutlineUserGroup } from "react-icons/hi";
@@ -54,9 +54,7 @@ export default function RoomDetail() {
   return (
     <main className="bg-gray-200 pb-16">
       {loading || error ? <section className="max-w-4xl mx-auto px-4 sm:px-12 lg:px-8 pt-48 pb-24">
-        {loading && (
-          <AiOutlineLoading3Quarters className="animate-spin text-yellow-700 w-8 h-8 pt-32 mx-auto" />
-        )}
+        {loading && <Loading message="Loading room details..."/>}
         {error && (
           <p className="text-red-600 text-lg text-center pt-12 pb-12">
             {error}
