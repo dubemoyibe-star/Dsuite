@@ -21,7 +21,7 @@ export default function Home() {
           transition={{ duration: 2, ease: "linear" }}
           style={{
             whiteSpace: "nowrap",
-            width: `32ch`,
+            width: "min(32ch, 100%)",
           }}
            className="text-5xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <motion.span 
            initial={{ clipPath: "inset(0 100% 0 0)" }}
@@ -29,7 +29,7 @@ export default function Home() {
           transition={{ duration: 2, delay: 0.6 , ease: "linear" }}
           style={{
             whiteSpace: "nowrap",
-            width: `32ch`,
+            width: "min(32ch, 100%)",
           }}
            className='block'>Suites With Ease</motion.span></motion.h1>
           <motion.p 
@@ -234,7 +234,7 @@ export default function Home() {
         </section>
 
         <section className='text-center py-24 px-6 sm:px-16 bg-gray-100 flex flex-col items-center justify-center'>
-          <div  className="inline-block overflow-hidden " style={{width: "32ch"}}>
+          <div  className="inline-block overflow-hidden " style={{width: "min(32ch, 100%)"}}>
           <motion.h3 
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           whileInView={{ clipPath: "inset(0 0% 0 0)" }}
