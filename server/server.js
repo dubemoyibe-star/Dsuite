@@ -18,8 +18,8 @@ await ensureDatabase()
 
 const app = express();
 
-const PORT = process.env.PORT || 8000;
-const NODE_ENV = process.env.NODE_ENV || "development";
+const PORT = process.env.PORT;
+const NODE_ENV = process.env.NODE_ENV;
 const allowedOrigin = process.env.FRONTEND_URL
 
 app.set("trust proxy", 1);
