@@ -233,8 +233,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className='text-center py-24 px-6 sm:px-16 bg-gray-100'>
-          <div  className="inline-block overflow-hidden">
+        <section className='text-center py-24 px-6 sm:px-16 bg-gray-100 flex flex-col items-center justify-center'>
+          <div  className="inline-block overflow-hidden " style={{width: "32ch"}}>
           <motion.h3 
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           whileInView={{ clipPath: "inset(0 0% 0 0)" }}
@@ -242,9 +242,8 @@ export default function Home() {
           transition={{ duration: 2, ease: "linear" }}
           style={{
             whiteSpace: "nowrap",
-            width: "32ch",
           }}
-          className='mb-4 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif text-center '>Ready to Book Your Stay?</motion.h3>
+          className='mb-4 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif text-center'>Ready to Book Your Stay?</motion.h3>
           </div>
           <motion.p 
           initial={{ y: 50, opacity: 0 }}
@@ -257,7 +256,7 @@ export default function Home() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay:0.4 }}
-          className='flex justify-center flex-col md:flex-row gap-4'>
+          className='flex justify-center flex-col md:flex-row gap-4 w-full'>
             <Link to="rooms" className="px-10 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold rounded-lg hover:shadow-2xl 
             cursor-pointer hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>Book Now</button></Link>
             <Link to="contact-us" className="px-10 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold rounded-lg 
