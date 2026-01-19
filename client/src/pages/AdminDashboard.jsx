@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+import { useEffect, useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function AdminDashboard() {
   const BASE = import.meta.env.VITE_API_BASE_URL;
@@ -8,7 +8,6 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [roomInputs, setRoomInputs] = useState({});
-  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -121,13 +120,16 @@ export default function AdminDashboard() {
   };
 
   if (loading) {
-    return <p className="text-center mt-32">Loading admin dashboard...</p>;
+    return <div className="text-center my-100 flex gap-4 justify-center">
+      <AiOutlineLoading3Quarters className="text-yellow-700 animate-spin text-3xl" />
+      <p className="text-2xl font-bold">Loading admin dashboard...</p>
+      </div>;
   }
 
   if (error) {
     return <p className="text-center mt-32 text-red-600">{error}</p>;
   }
-
+  console.log(bookings)
   return (
     <section className="mx-auto px-4 pt-32 pb-28 bg-gray-100 lg:px-16 space-y-16">
       <h1 className="text-3xl font-serif font-bold text-gray-800">
@@ -173,7 +175,7 @@ export default function AdminDashboard() {
                   </p>
 
                   <div className="mt-2 text-sm space-y-1">
-                    <p>Username: {user.username}</p>
+                    <p>Username: {booking.username}</p>
                     <p>User ID: {booking.user_id}</p>
                     <p>Nights: {booking.nights}</p>
                     <p className="font-semibold">

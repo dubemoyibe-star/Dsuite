@@ -198,6 +198,7 @@ export async function getAdminBookings(req, res){
       SELECT
         b.id,
         b.user_id,
+        u.username AS username,
         b.check_in,
         b.check_out,
         b.total_price,
@@ -208,6 +209,7 @@ export async function getAdminBookings(req, res){
         (julianday(b.check_out) - julianday(b.check_in)) AS nights
       FROM bookings b
       JOIN rooms r ON r.id = b.room_id
+      JOIN users u ON u.id = b.user_id
       ORDER BY b.check_in DESC
     `);
 
