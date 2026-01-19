@@ -132,7 +132,7 @@ export default function Checkout() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
-            <label htmlFor="check_in" className="text-sm font-medium text-gray-700">
+            <label htmlFor="check_in" className="text-sm font-medium text-gray-700 w-full">
               Check-in-date
             </label>
             <input
@@ -144,7 +144,7 @@ export default function Checkout() {
             />
             </div>
 
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 w-full">
             <label htmlFor="check_out" className="text-sm font-medium text-gray-700">
               Check-out-date
             </label>
