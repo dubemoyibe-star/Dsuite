@@ -140,7 +140,7 @@ export default function Checkout() {
               name="check_in"
               value={formData.check_in}
               onChange={handleChange}
-              className="border rounded-md p-3"
+              className="border rounded-md p-3 w-full"
             />
             </div>
 
@@ -153,7 +153,7 @@ export default function Checkout() {
               name="check_out"
               value={formData.check_out}
               onChange={handleChange}
-              className="border rounded-md p-3"
+              className="border rounded-md p-3 w-full"
             />
             </div>
           </div>
