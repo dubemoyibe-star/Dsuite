@@ -82,10 +82,8 @@ export default function AdminBookings() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Bookings</h2>
-
       {bookings.length === 0 ? (
-        <p className="text-gray-600">No bookings found.</p>
+        <p className="text-gray-600 text-xl flex justify-center">No bookings found.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {bookings.map((booking) => (

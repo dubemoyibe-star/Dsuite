@@ -58,21 +58,19 @@ export default function AdminMessages() {
     }
   };
 
-  if (loading) {
-    return <Loading 
-              message="Loading messages..." 
-              margin="20"/>
+    if (loading) {
+      return <Loading 
+                message="Loading messages..." 
+                margin="20"/>
+    }
+    if (error) {
+      return <p className="text-center mt-32 text-red-600">{error}</p>
   }
-  if (error) {
-    return <p className="text-center mt-32 text-red-600">{error}</p>
-}
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Messages</h2>
-
       {messages.length === 0 ? (
-        <p className="text-gray-600">No messages yet.</p>
+        <p className="text-gray-600 text-xl flex justify-center">No messages yet.</p>
       ) : (
         <div className="space-y-4">
           {messages.map((msg) => (

@@ -11,11 +11,11 @@ export default function AdminDashboard() {
      }`;
 
   return (
-    <section className="mx-auto px-4 pt-32 pb-28 bg-gray-100 lg:px-16">
-      <h1 className="text-3xl font-serif font-bold text-gray-800 mb-10">
+    <section className="mx-auto px-4 pt-42 pb-28 bg-gray-100 lg:px-16">
+      <h1 className="text-3xl font-serif font-bold text-gray-800 mb-6">
         Admin Dashboard
       </h1>
-      
+
       <nav className="flex gap-6 mb-12">
         <NavLink
           to="bookings"
