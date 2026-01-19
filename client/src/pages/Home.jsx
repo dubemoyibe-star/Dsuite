@@ -15,15 +15,16 @@ export default function Home() {
   return (
       <main className='bg-gray-300'>
         <section className="pt-32 px-6 sm:px-16 bg-[image:var(--background-image-hero-mobile)] bg-cover bg-center h-screen flex flex-col justify-center items-start text-gray-900 md:bg-[image:var(--background-image-hero-desktop)] ">
+          <div  className="inline-block overflow-hidden " style={{width: "100%"}}>
           <motion.h1 
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           animate={{ clipPath: "inset(0 0% 0 0)" }}
           transition={{ duration: 2, ease: "linear" }}
           style={{
             whiteSpace: "nowrap",
-            width: "min(32ch, 100%)",
+            width: "100%",
           }}
-           className="text-5xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <motion.span 
+           className="text-4xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <motion.span 
            initial={{ clipPath: "inset(0 100% 0 0)" }}
           animate={{ clipPath: "inset(0 0% 0 0)" }}
           transition={{ duration: 2, delay: 0.6 , ease: "linear" }}
@@ -32,6 +33,7 @@ export default function Home() {
             width: "min(32ch, 100%)",
           }}
            className='block'>Suites With Ease</motion.span></motion.h1>
+           </div>
           <motion.p 
           initial={{y:40, opacity: 0}}
           animate={{y:0, opacity: 1}}
