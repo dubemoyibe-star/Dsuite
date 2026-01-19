@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import { AuthProvider } from './contexts/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
@@ -20,6 +20,8 @@ import NotFound from './pages/NotFound.jsx';
 import BookingSuccess from './pages/BookingSuccess.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 import AdminRoute from './components/AdminRoute.jsx';
+import AdminMessages from './pages/AdminMessages.jsx';
+import AdminBookings from './pages/AdminBookings.jsx';
 
 
 export default function App() {
@@ -43,8 +45,12 @@ export default function App() {
             </Route>
 
             <Route element={<AdminRoute />}>
-            <Route path="admin" element={<AdminDashboard />} />
-          </Route>
+              <Route path="/admin" element={<AdminDashboard />}>
+                <Route index element={<Navigate to="bookings" replace />} />
+                <Route path="bookings" element={<AdminBookings />} />
+                <Route path="messages" element={<AdminMessages />} />
+              </Route>
+            </Route>
 
           </Route>
 
