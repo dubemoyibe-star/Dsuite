@@ -49,9 +49,12 @@ export default function Rooms() {
       <p className="pb-4 font-semibold text-gray-700 text-lg lg:text-xl  text-center">Explore our rooms thoughtfully designed to ensure maximum comfort.</p>
 
       {loading && (
-        <Loading 
+        <div className="my-16">
+          <Loading 
         message="Loading rooms..."
-        margin="20" />
+        margin="24"/>
+        </div>
+        
       )}
 
       {error && (
