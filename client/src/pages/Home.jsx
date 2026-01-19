@@ -21,16 +21,16 @@ export default function Home() {
           animate={{ clipPath: "inset(0 0% 0 0)" }}
           transition={{ duration: 2, ease: "linear" }}
           style={{
-            whiteSpace: "nowrap",
+            whiteSpace: "wrap",
             width: "100%",
           }}
-           className="text-4xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <motion.span 
+           className="text-5xl font-medium mb-4 text-yellow-700 text-shadow-lg font-serif sm:text-6xl">Book Comfortable <motion.span 
            initial={{ clipPath: "inset(0 100% 0 0)" }}
           animate={{ clipPath: "inset(0 0% 0 0)" }}
           transition={{ duration: 2, delay: 0.6 , ease: "linear" }}
           style={{
-            whiteSpace: "nowrap",
-            width: "min(32ch, 100%)",
+            whiteSpace: "wrap",
+            width: "100%",
           }}
            className='block'>Suites With Ease</motion.span></motion.h1>
            </div>
@@ -112,7 +112,7 @@ export default function Home() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 , delay: 0.2}}
-          className='mt-2 mb-8 text-lg font-medium  text-center'>Explore our suite options simply and effortlessly</motion.p>
+          className='mt-2 mb-8 text-lg font-medium  text-center px-2'>Explore our suite options simply and effortlessly</motion.p>
           <div className='flex flex-col md:flex-row justify-center md:items-stretch gap-6 px-4 sm:px-16 text-left'>
             
             <motion.div 
@@ -236,14 +236,14 @@ export default function Home() {
         </section>
 
         <section className='text-center py-24 px-6 sm:px-16 bg-gray-100 flex flex-col items-center justify-center'>
-          <div  className="inline-block overflow-hidden " style={{width: "min(32ch, 100%)"}}>
+          <div  className="inline-block overflow-hidden " style={{width: "100%"}}>
           <motion.h3 
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           whileInView={{ clipPath: "inset(0 0% 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 2, ease: "linear" }}
           style={{
-            whiteSpace: "nowrap",
+            whiteSpace: "wrap",
           }}
           className='mb-4 text-medium text-3xl sm:text-4xl text-yellow-700 font-serif text-center'>Ready to Book Your Stay?</motion.h3>
           </div>
