@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { MotionConfig } from "framer-motion"
 import ScrollToTop from './components/ScrollToTop.jsx';
 import { AuthProvider } from './contexts/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
-
 import Layout from './components/Layout.jsx';
-
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Rooms from './pages/Rooms.jsx';
@@ -28,6 +27,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+      <MotionConfig viewport={{once: true}}>
         <ScrollToTop />
 
         <Routes>
@@ -60,6 +60,7 @@ export default function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </MotionConfig>
       </BrowserRouter>
     </AuthProvider>
   );

@@ -5,6 +5,7 @@ import { LuMenu } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from '../contexts/AuthContext';
+import { motion } from 'framer-motion';
 
 export default function Header() {
 
@@ -48,13 +49,17 @@ export default function Header() {
      }`;
 
   return (
-    <>
+    <motion.div
+    initial={{y: -40, opacity: 0}}
+    animate={{y: 0, opacity: 1}}
+    transition={{duration: 0.5}}
+    >
       {/* NAV (lower z so overlay can sit above it) */}
       <nav className="flex justify-between p-4 text-white shadow-2xl fixed w-full top-0 items-center backdrop-blur-sm z-10">
         <div>
-          <div className='w-16 h-16 rounded-full bg-yellow-100'>
+          <motion.div  whileHover={{scale: 1.05}} className='w-16 h-16 rounded-full bg-yellow-100'>
             <img src={logo} alt="Logo" className='w-full h-full object-contain'/>
-          </div>
+          </motion.div>
         </div>
 
         {/* desktop links */}
@@ -178,6 +183,6 @@ export default function Header() {
           )
         )}
       </div>
-    </>
+    </motion.div>
   );
 }
