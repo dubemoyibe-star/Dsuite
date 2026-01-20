@@ -100,10 +100,10 @@ export default function AuthForm({ mode }) {
           </div>
        
 
-        <h2 className="text-2xl lg:text-3xl font-serif font-bold text-center text-gray-800 mb-[-6]">
+        <h2 className="text-2xl lg:text-3xl font-serif font-bold text-center text-gray-800 ">
           { isSignUp ? "Create Your Account" : "Welcome Back" }
         </h2>
-        <p className="text-center text-gray-500 mb-2">
+        <p className="text-center text-gray-500 mb-2 -mt-2">
          {isSignUp ? "Join us and enjoy a refined luxury experience" : "Log in to your account."}
         </p>
 
