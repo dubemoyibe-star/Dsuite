@@ -4,12 +4,13 @@ import logo from "../assets/logo.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import { IoEyeOff , IoEye } from "react-icons/io5"; 
+import { motion } from "framer-motion";
 
 
 export default function AuthForm({ mode }) {
 
   const BASE = import.meta.env.VITE_API_BASE_URL;
-  const { isAuth, refreshUser } = React.useContext(AuthContext);
+  const {  refreshUser } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from || "/profile";
@@ -87,25 +88,38 @@ export default function AuthForm({ mode }) {
   };
 
   return (
-    <section className={`h-screen bg-gray-200 sm:py-4 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.75)),url('/assets/auth-bg.jpg')] bg-cover bg-center min-h-screen `}>
+    <section 
+    className={` ${isSignUp ? '' : 'h-screen'} bg-gray-200 sm:py-4 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.75)),url('/assets/auth-bg.jpg')] bg-cover bg-center min-h-screen `}>
       <form
         onSubmit={handleSubmit}
         className="bg-gray-50 sm:rounded-2xl shadow-xl p-6 lg:p-8 flex flex-col gap-4 max-w-lg mx-auto h-full"
       >
         
-          <div className="flex justify-center mb-2">
+          <motion.div 
+          initial={{y:40, opacity: 0}}
+          animate={{y:0, opacity: 1}}
+          transition={{duration:0.8}}
+          className="flex justify-center mb-2">
             <Link to="/" className="h-18 w-18 flex items-center justify-center rounded-full bg-yellow-100 shadow-sm shadow-gray-200">
               <img src={logo} alt="Logo" className="w-full h-full object-contain" />
             </Link>
-          </div>
+          </motion.div>
        
 
-        <h2 className="text-2xl lg:text-3xl font-serif font-bold text-center text-gray-800 ">
+        <motion.h2 
+        initial={{y:40, opacity: 0}}
+        animate={{y:0, opacity: 1}}
+        transition={{duration:0.8, delay: 0.1}}
+        className="text-2xl lg:text-3xl font-serif font-bold text-center text-gray-800 ">
           { isSignUp ? "Create Your Account" : "Welcome Back" }
-        </h2>
-        <p className="text-center text-gray-500 mb-2 -mt-2">
+        </motion.h2>
+        <motion.p 
+        initial={{y:40, opacity: 0}}
+        animate={{y:0, opacity: 1}}
+        transition={{duration:0.8, delay: 0.2}}
+        className="text-center text-gray-500 mb-2 -mt-2">
          {isSignUp ? "Join us and enjoy a refined luxury experience" : "Log in to your account."}
-        </p>
+        </motion.p>
 
         {error && (
           <p className="text-red-600 text-sm text-center">{error}</p>
@@ -117,7 +131,11 @@ export default function AuthForm({ mode }) {
           </p>
         )}
 
-        {isSignUp ? <div className="flex flex-col gap-1">
+        {isSignUp ? <motion.div 
+        initial={{y:40, opacity: 0}}
+        animate={{y:0, opacity: 1}}
+        transition={{duration:0.8, delay: 0.3}}
+        className="flex flex-col gap-1">
           <label htmlFor="name" className=" text-sm font-medium text-gray-700">
             Full Name
           </label>
@@ -131,9 +149,13 @@ export default function AuthForm({ mode }) {
             required
             className="border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-yellow-700"
           />
-        </div> : null}
+        </motion.div> : null}
 
-         <div className="flex flex-col gap-1">
+         <motion.div 
+         initial={{y:40, opacity: 0}}
+        animate={{y:0, opacity: 1}}
+        transition={{duration:0.8, delay: 0.4}}
+         className="flex flex-col gap-1">
           <label htmlFor="username" className="text-sm font-medium text-gray-700">
             Username
           </label>
@@ -147,9 +169,13 @@ export default function AuthForm({ mode }) {
             required
             className="border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-yellow-700"
           />
-        </div>
+        </motion.div>
 
-        {isSignUp ? <div className="flex flex-col gap-1">
+        {isSignUp ? <motion.div 
+        initial={{y:40, opacity: 0}}
+        animate={{y:0, opacity: 1}}
+        transition={{duration:0.8, delay: 0.4}}
+        className="flex flex-col gap-1">
           <label htmlFor="email" className="text-sm font-medium text-gray-700">
             Email Address
           </label>
@@ -163,9 +189,13 @@ export default function AuthForm({ mode }) {
             required
             className="border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-yellow-700"
           />
-        </div> : null}
+        </motion.div> : null}
 
-       <div className="flex flex-col gap-1">
+       <motion.div 
+       initial={{y:40, opacity: 0}}
+      animate={{y:0, opacity: 1}}
+      transition={{duration:0.8, delay: 0.5}}
+       className="flex flex-col gap-1">
         <label htmlFor="password" className="text-sm font-medium text-gray-700">
           Password
         </label>
@@ -190,21 +220,28 @@ export default function AuthForm({ mode }) {
               {showPassword ? <IoEye className="w-8 text-xl text-yellow-700 cursor-pointer"/> : <IoEyeOff className="w-8 text-xl text-yellow-700 cursor-pointer"/>}
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <button
+        <motion.button
+          initial={{y:40, opacity: 0}}
+          animate={{y:0, opacity: 1}}
+          transition={{duration:0.8 , delay: 0.6}}
           type="submit"
           disabled={loading}
           className="mt-4 cursor-pointer bg-yellow-700 text-white py-2 rounded-md font-semibold hover:bg-yellow-800 transition disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {loading ? (isSignUp ? "Creating account..." : "Logging in...") : (isSignUp  ? "Create Account" : "Log In")}
-        </button>
-        <p className="text-center text-sm text-gray-600 pb-4">
+        </motion.button>
+        <motion.p 
+          initial={{y:50, opacity: 0}}
+          animate={{y:0, opacity: 1}}
+          transition={{duration:0.8, delay: 1}}
+        className="text-center text-sm text-gray-600 pb-4">
           {isSignUp ? "Already have an account?" : "Don't have an account yet?"}
           <Link to={isSignUp ? "/login" : "/signup"} className="text-yellow-700 font-medium hover:underline">
            {isSignUp ? " Log in" : " Sign up"}
           </Link>
-        </p>
+        </motion.p>
       </form>
       
     </section>
