@@ -66,7 +66,7 @@ export default function Rooms() {
         <div className="my-16">
           <Loading 
         message="Loading rooms..."
-        margin="24"/>
+        margin="64"/>
         </div>
         
       )}
