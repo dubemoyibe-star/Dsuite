@@ -8,6 +8,7 @@ import { FaCar } from "react-icons/fa";
 import { GoClock } from "react-icons/go";
 import { GiTowel } from "react-icons/gi";
 import Loading from "../components/Loading";
+import { motion } from "framer-motion";
 
 export default function Rooms() {
   const BASE = import.meta.env.VITE_API_BASE_URL;
@@ -45,8 +46,21 @@ export default function Rooms() {
   return (
     <main className="bg-gray-200">
       <section className="max-w-7xl  mx-auto px-4 sm:px-12 lg:px-8 pt-48">
-      <h2 className="text-4xl md:text-5xl lg:7xl font-serif text-center font-semibold text-yellow-700 pb-3">Rooms & Suites</h2>
-      <p className="pb-4 font-semibold text-gray-700 text-lg lg:text-xl  text-center">Explore our rooms thoughtfully designed to ensure maximum comfort.</p>
+      <motion.h2 
+      initial={{ clipPath: "inset(0 100% 0 0)" }}
+      animate={{ clipPath: "inset(0 0% 0 0)" }}
+      transition={{ duration: 1, ease: "linear" }}
+      style={{
+        whiteSpace: "wrap",
+        width: "100%",
+      }}
+      className="text-4xl md:text-5xl lg:7xl font-serif text-center font-semibold text-yellow-700 pb-3">Rooms & Suites</motion.h2>
+      <motion.p 
+      initial={{ y: 40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      viewport={{once: true}}
+      transition={{ duration: 0.8}}
+      className="pb-4 font-semibold text-gray-700 text-lg lg:text-xl  text-center">Explore our rooms thoughtfully designed to ensure maximum comfort.</motion.p>
 
       {loading && (
         <div className="my-16">
@@ -66,7 +80,13 @@ export default function Rooms() {
       {!loading && !error && 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-12 pb-24">
         {rooms.map(({ id, name, description, price_per_night, image_url, max_guests, has_breakfast }) => (
-          <div key={id} className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
+          <motion.div 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 }} 
+          key={id} 
+          className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
           <div className="overflow-hidden rounded-t-lg">
           <img src={`/assets/${image_url}`} alt={`${name}`} className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
           </div>
@@ -100,48 +120,99 @@ export default function Rooms() {
             <button className=" mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">View Details</button>
             </Link>
           </div>
-        </div> 
+        </motion.div> 
         ))}
       </div>
       }
     </section>
 
     <section className="max-w-7xl  mx-auto px-4 sm:px-12 lg:px-8 pt-16">
-      <h2 className="text-4xl md:text-5xl lg:7xl font-serif text-center font-semibold text-yellow-700 pb-3">Room Amenities & Services</h2>
-      <p className="pb-4 font-semibold text-gray-700 text-lg lg:text-xl  text-center">Every stay includes carefully selected amenities to ensure comfort and convenience.</p>
-        <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 text-gray-900 font-medium text-lg pb-24 pt-6">
-          <li className="flex items-center gap-3">
+      <motion.h2 
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{once: true}}
+      transition={{ duration: 0.8}}
+      className="text-4xl md:text-5xl lg:7xl font-serif text-center font-semibold text-yellow-700 pb-3">Room Amenities & Services</motion.h2>
+      <motion.p 
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{once: true}}
+      transition={{ duration: 0.8, delay:0.2 }}
+      className="pb-4 font-semibold text-gray-700 text-lg lg:text-xl  text-center">Every stay includes carefully selected amenities to ensure comfort and convenience.</motion.p>
+        <ul 
+        className="grid grid-cols-2 md:grid-cols-4 gap-6 text-gray-900 font-medium text-lg pb-24 pt-6">
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 }} 
+          className="flex items-center gap-3">
             <IoWifiOutline className="w-8 h-8 text-yellow-700"/>
             Free High-Speed Wi-Fi
-          </li>
-          <li className="flex items-center gap-3">
+          </motion.li>
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 , delay:0.1}} 
+          className="flex items-center gap-3">
             <IoSnowOutline className="w-8 h-8 text-yellow-700"/>
             Air Conditioning
-          </li>
-          <li className="flex items-center gap-3">
+          </motion.li>
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 , delay:0.2}} 
+          className="flex items-center gap-3">
             <BsTv className="w-8 h-8 text-yellow-700"/>
             Smart TV with Streaming
-          </li>
-          <li className="flex items-center gap-3">
+          </motion.li>
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 , delay:0.3}} 
+          className="flex items-center gap-3">
             <PiBowlFoodLight className="w-8 h-8 text-yellow-700"/>
             On-Demand Breakfast
-          </li>
-          <li className="flex items-center gap-3">
+          </motion.li>
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 , delay:0.4}} 
+          className="flex items-center gap-3">
             <PiBroom className="w-8 h-8 text-yellow-700"/>
             Daily Housekeeping
-          </li>
-          <li className="flex items-center gap-3">
+          </motion.li>
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8, delay:0.5 }} 
+          className="flex items-center gap-3">
             <FaCar  className="w-8 h-8 text-yellow-700"/>
             Secure Parking
-          </li>
-          <li className="flex items-center gap-3">
+          </motion.li>
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 , delay: 0.6}} 
+          className="flex items-center gap-3">
             <GiTowel className="w-8 h-8 text-yellow-700"/>
             Fresh Linen & Towels
-          </li>
-          <li className="flex items-center gap-3">
+          </motion.li>
+          <motion.li 
+          initial={{scale: 0.9, opacity: 0}}
+          whileInView={{scale: 1, opacity:1}}
+          viewport={{once: true}}
+          transition={{duration: 0.8 , delay: 0.7}} 
+          className="flex items-center gap-3">
             <GoClock className="w-8 h-8 text-yellow-700"/>
             24/7 Room Service
-          </li>
+          </motion.li>
         </ul>
     </section>
     </main>

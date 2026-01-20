@@ -190,7 +190,7 @@ export default function About() {
         <section className='text-center py-24 px-6 sm:px-16 bg-gray-800'>
           <motion.h3 
           initial={{ clipPath: "inset(0 100% 0 0)" }}
-          animate={{ clipPath: "inset(0 0% 0 0)" }}
+          whileInView={{ clipPath: "inset(0 0% 0 0)" }}
           transition={{ duration: 2, ease: "linear" }}
           style={{
             whiteSpace: "wrap",
@@ -219,7 +219,7 @@ export default function About() {
         <section className="p-24 bg-gray-100 text-center">
          <motion.p 
          initial={{ clipPath: "inset(0 100% 0 0)" }}
-          animate={{ clipPath: "inset(0 0% 0 0)" }}
+          whileInView={{ clipPath: "inset(0 0% 0 0)" }}
           transition={{ duration: 2, ease: "linear" }}
           style={{
             whiteSpace: "wrap",
