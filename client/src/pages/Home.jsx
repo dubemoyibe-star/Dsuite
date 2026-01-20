@@ -44,9 +44,9 @@ export default function Home() {
           animate={{x:0, opacity: 1}}
           transition={{duration:0.8, delay:0.4}}
           >
-            <Link to="rooms"><button className="mt-6 px-8 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold 
+            <Link to="rooms"><button className="mt-6 mr-4 px-8 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold 
             rounded-lg hover:shadow-2xl active:shadow-2xl cursor-pointer hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300">Book Now</button></Link>
-           <Link to="about"><button className="mt-6 ml-4 px-8 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold 
+           <Link to="about"><button className="mt-6  px-8 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold 
             rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300">Learn More</button></Link> 
           </motion.div>
         </section>
@@ -63,7 +63,7 @@ export default function Home() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{once: true}}
           transition={{ duration: 0.8 , delay: 0.2}}
-           className='mt-2 mb-8 text-lg font-medium '>Discover the benefits of booking with us</motion.p>
+           className='mt-2 mb-8 text-lg font-medium px-6'>Discover the benefits of booking with us</motion.p>
           <div className=' flex flex-col md:flex-row md:justify-center md:items-stretch gap-4 px-4 sm:px-16'>
             <motion.div 
             initial={{scale: 0.9, opacity: 0}}
@@ -112,7 +112,7 @@ export default function Home() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 , delay: 0.2}}
-          className='mt-2 mb-8 text-lg font-medium  text-center px-2'>Explore our suite options simply and effortlessly</motion.p>
+          className='mt-2 mb-8 text-lg font-medium  text-center px-6'>Explore our suite options simply and effortlessly</motion.p>
           <div className='flex flex-col md:flex-row justify-center md:items-stretch gap-6 px-4 sm:px-16 text-left'>
             
             <motion.div 
@@ -126,7 +126,7 @@ export default function Home() {
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Exclusive Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $60,000 /night</p>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at ₦60,000 /night</p>
                 <Link to="rooms/1" className="text-center mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>View Details</button></Link>
               </div>
             </motion.div> 
@@ -143,7 +143,7 @@ export default function Home() {
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Regular Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $30,000 /night</p>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at ₦30,000 /night</p>
                 <Link to="rooms/2" className="text-center mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>View Details</button></Link>
               </div>
             </motion.div> 
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Family Suite</h3>
-                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at $45,000 /night</p>
+                <p className='mt-2  text-gray-700 font-medium text-lg '>starting at ₦45,000 /night</p>
                <Link to="rooms/3" className="text-center mt-4 px-6 py-2 text-white font-semibold font-serif text-lg rounded-lg hover:bg-linear-to-l from-yellow-600 to-yellow-800  hover:shadow-2xl bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>View Details</button></Link>
               </div>
             </motion.div> 

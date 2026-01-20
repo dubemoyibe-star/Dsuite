@@ -64,8 +64,19 @@ export default function Footer() {
 
 
       </section>
+
+      <div className='text-center pt-4 mt-8'>
+        <p className='text-gray-400 text-sm pt-6' >Developed by <a
+            href="https://wa.me/2347026137565"
+            target="_blank"
+            rel="noreferrer"
+            className="text-white hover:text-yellow-700 transition  font-semi-bold underline underline-offset-3"
+              >
+                Oyibe
+              </a></p>
+      </div>
       
-      <div className='text-center border-t border-gray-200 pt-4 mt-8'>
+      <div className='text-center border-t border-gray-200 mt-6'>
         <p className='text-gray-200 text-sm pt-6' >&copy; {new Date().getFullYear()} DSuite. All rights reserved.</p>
       </div>
 
