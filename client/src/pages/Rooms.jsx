@@ -63,7 +63,7 @@ export default function Rooms() {
       className="pb-4 font-semibold text-gray-700 text-lg lg:text-xl  text-center">Explore our rooms thoughtfully designed to ensure maximum comfort.</motion.p>
 
       {loading && (
-        <div className="mt-16 mb-56">
+        <div className="mt-16 mb-96">
           <Loading 
         message="Loading rooms..."
         margin="24"/>
