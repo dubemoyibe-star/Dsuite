@@ -65,11 +65,19 @@ export default function AuthForm({ mode }) {
       navigate(from, { replace: true });
     } catch (err) {
       console.log(err);
+      const devErrors = [
+        "TypeError",
+        "Failed to execute 'json' on 'Response': Unexpected end of JSON input",
+        "NetworkError",
+        "AbortError",
+        "SyntaxError"
+      ];
       setError(
-        err.name === "TypeError" || "Failed to execute 'json' on 'Response': Unexpected end of JSON input"
+          devErrors.includes(err.name) || devErrors.includes(err.message)
         ? "Something went wrong. Please check your connection."
         : err.message || "Something went wrong."
       );
+      
       setSuccess(false);
     } finally {
       setLoading(false);

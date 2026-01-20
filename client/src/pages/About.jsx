@@ -14,9 +14,9 @@ export default function About() {
           <p className="text-gray-300 font-serif text-shadow-sm text-shadow-black font-medium text-shadow-lg text-2xl sm:text-3xl">Experience Comfort,<span className='block'>Designed for You</span></p>
           <p className="text-gray-300 mt-2 font-medium font-serif text-shadow-sm text-shadow-black text-lg sm:text-xl">Modern hospitality focused on<span className='block'>comfort, security and simplicity</span></p>
           <div className="mt-4">
-            <Link to="/rooms" className="mt-6 px-8 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold 
+            <Link to="/rooms" className="mt-6 mr-4 px-8 py-2 bg-linear-to-r from-yellow-600 to-yellow-800 text-white font-semibold 
             rounded-lg hover:shadow-2xl active:shadow-2xl cursor-pointer hover:bg-linear-to-l from-yellow-600 to-yellow-800 active:bg-linear-to-l from-yellow-600 to-yellow-800 transition-colors duration-300"><button>Explore Rooms</button></Link>
-            <Link to="/contact-us" className="mt-6 ml-4 px-8 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold 
+            <Link to="/contact-us" className="mt-6 px-8 py-2 bg-white border-solid border-2 border-yellow-600 text-gray-800 font-semibold 
             rounded-lg hover:bg-linear-to-r from-yellow-600 to-yellow-800 active:bg-linear-to-r from-yellow-600 to-yellow-800 cursor-pointer hover:text-white active:text-white transition-colors duration-300"><button>Contact Us</button></Link>
           </div>
         </section>

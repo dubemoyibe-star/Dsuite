@@ -26,10 +26,20 @@ export async function registerUser(req, res) {
     return res.status(400).json({ message: "Invalid email format." });
   }
 
-  if(!validator.isLength(password, { min: 6})) {
-    return res.status(400).json({ message: "Password must be at least 6 characters long." });
+    if (
+    !validator.isStrongPassword(password, {
+      minLength: 8,
+      minLowercase: 1,
+      minUppercase: 1,
+      minNumbers: 1,
+      minSymbols: 0
+    })
+  ) {
+    return res.status(400).json({
+      message:
+        "Password must be at least 8 characters and include uppercase, lowercase, and a number."
+    });
   }
-
   try {
     const existingUser = await db.get("SELECT * FROM users WHERE email = ? OR username = ?", [email, username]);
     if (existingUser) {
