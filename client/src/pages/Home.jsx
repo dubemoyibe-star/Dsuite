@@ -241,7 +241,7 @@ export default function Home() {
           initial={{ clipPath: "inset(0 100% 0 0)" }}
           whileInView={{ clipPath: "inset(0 0% 0 0)" }}
           viewport={{ once: true }}
-          transition={{ duration: 2, ease: "linear" }}
+          transition={{ duration: 1, ease: "linear" }}
           style={{
             whiteSpace: "wrap",
           }}

@@ -84,7 +84,7 @@ export default function Rooms() {
           initial={{scale: 0.9, opacity: 0}}
           whileInView={{scale: 1, opacity:1}}
           viewport={{once: true}}
-          transition={{duration: 0.8 }} 
+          transition={{duration: 0.8, delay:0.2 }} 
           key={id} 
           className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
           <div className="overflow-hidden rounded-t-lg">

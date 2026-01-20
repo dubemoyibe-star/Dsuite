@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -44,17 +45,34 @@ export default function FAQ() {
   return (
     <section className="min-h-screen bg-gray-200 px-4 pt-36 pb-24 md:px-10">
       <div className="max-w-4xl mx-auto text-center mb-14">
-        <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-800">
+        <motion.h1 
+        initial={{ clipPath: "inset(0 100% 0 0)" }}
+        animate={{ clipPath: "inset(0 0% 0 0)" }}
+        transition={{ duration: 1, ease: "linear" }}
+        style={{
+          whiteSpace: "wrap",
+          width: "100%",
+        }}
+        className="text-3xl md:text-4xl font-serif font-bold text-gray-800">
           Frequently Asked Questions
-        </h1>
-        <p className="mt-4 text-gray-600 text-base md:text-lg">
+        </motion.h1>
+        <motion.p 
+        initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{once: true}}
+          transition={{ duration: 0.8}}
+        className="mt-4 text-gray-600 text-base md:text-lg">
           Everything you need to know about bookings, payments, and support.
-        </p>
+        </motion.p>
       </div>
 
       <div className="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
-          <div
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{once: true}}
+            transition={{ duration: 0.8, delay:0.2}}
             key={index}
             className="bg-white rounded-xl shadow-sm border border-gray-200"
           >
@@ -77,11 +95,16 @@ export default function FAQ() {
                 {faq.answer}
               </div>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className="mt-16 text-center">
+      <motion.div 
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{once: true}}
+      transition={{ duration: 0.8 }}
+      className="mt-16 text-center">
         <p className="text-gray-600 mb-4">
           Still have questions?
         </p>
@@ -91,7 +114,7 @@ export default function FAQ() {
         >
           Contact Support
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 }
