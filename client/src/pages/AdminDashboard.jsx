@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function AdminDashboard() {
 
@@ -12,11 +13,19 @@ export default function AdminDashboard() {
 
   return (
     <section className="mx-auto px-4 pt-42 pb-28 bg-gray-100 lg:px-16">
-      <h1 className="text-3xl font-serif font-bold text-gray-800 mb-6">
+      <motion.h1 
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="text-3xl font-serif font-bold text-gray-800 mb-6">
         Admin Dashboard
-      </h1>
+      </motion.h1>
 
-      <nav className="flex gap-6 mb-12">
+      <motion.nav 
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 , delay: 0.2}}
+      className="flex gap-6 mb-12">
         <NavLink
           to="bookings"
           className={navLinkClassMobile}
@@ -30,7 +39,7 @@ export default function AdminDashboard() {
         >
           Messages
         </NavLink>
-      </nav>
+      </motion.nav>
 
       <Outlet />
     </section>

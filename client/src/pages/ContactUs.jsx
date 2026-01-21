@@ -183,15 +183,23 @@ export default function Contact() {
           </motion.h2>
 
           {error && (
-            <p className="mb-4 text-sm text-red-600 bg-red-50 p-3 rounded">
+            <motion.p 
+            initial={{y:40, opacity: 0}}
+            whileInView={{y:0, opacity: 1}}
+            transition={{duration:0.4}}
+            className="mb-4 text-sm text-red-600 bg-red-50 p-3 rounded">
               {error}
-            </p>
+            </motion.p>
           )}
 
           {showSuccess && (
-            <p className="mb-4 text-sm text-green-600 bg-green-50 p-3 rounded">
+            <motion.p 
+            initial={{y:40, opacity: 0}}
+            whileInView={{y:0, opacity: 1}}
+            transition={{duration:0.4}}
+            className="mb-4 text-sm text-green-600 bg-green-50 p-3 rounded">
               {success}
-            </p>
+            </motion.p>
           )}
 
           <form className="space-y-5" onSubmit={handleSubmit}>

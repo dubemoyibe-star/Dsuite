@@ -122,13 +122,26 @@ export default function AuthForm({ mode }) {
         </motion.p>
 
         {error && (
-          <p className="text-red-600 text-sm text-center">{error}</p>
+          <motion.div 
+          initial={{y:40, opacity: 0}}
+          animate={{y:0, opacity: 1}}
+          transition={{duration:0.4}}
+          className="bg-red-100 rounded-lg p-2 shadow-sm">
+            <p className="text-red-600 text-sm  text-center">{error}</p>
+          </motion.div>
         )}
 
         {success && (
-          <p className="text-blue-500 text-sm text-center">
+          <motion.div
+          initial={{y:40, opacity: 0}}
+          animate={{y:0, opacity: 1}}
+          transition={{duration:0.4}}
+          className="bg-blue-100 rounded-lg p-2 shadow-sm"
+          >
+            <p className="text-blue-600 text-sm text-center">
             {isSignUp ? "Account created successfully" : "Login successful"}
           </p>
+          </motion.div>
         )}
 
         {isSignUp ? <motion.div 
