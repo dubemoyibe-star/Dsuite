@@ -27,7 +27,7 @@ export async function ensureDatabase() {
   if (!fs.existsSync(PROD_DB_PATH)) {
     fs.mkdirSync("/var/data", { recursive: true });
     fs.copyFileSync(SOURCE_DB_PATH, PROD_DB_PATH);
-    console.log("✅ DB copied (file did not exist)");
+    console.log("DB copied (file did not exist)");
     return;
   }
 
@@ -35,8 +35,8 @@ export async function ensureDatabase() {
 
   if (!tablesExist) {
     fs.copyFileSync(SOURCE_DB_PATH, PROD_DB_PATH);
-    console.log("✅ DB copied (empty database fixed)");
+    console.log("DB copied (empty database fixed)");
   } else {
-    console.log("✅ DB already initialized");
+    console.log("DB already initialized");
   }
 }
