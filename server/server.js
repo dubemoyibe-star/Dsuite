@@ -12,6 +12,7 @@ import { bookingsRouter } from "./routes/bookingsRoute.js";
 import { meRouter } from "./routes/meRouter.js";
 import { messagesRouter } from "./routes/messagesRoute.js";
 import { adminMessagesRouter } from "./routes/adminMessagesRoute.js";
+import { generalLimiter } from "./middleware/rateLimiters.js";
 // import { apiKeyAuth } from "./middleware/apiKeyAuth.js";
 
 await ensureDatabase()
@@ -28,6 +29,7 @@ app.use(
   cors({
     origin: allowedOrigin, 
     credentials: true,
+    exposedHeaders: ["RateLimit-Limit", "RateLimit-Remaining", "RateLimit-Reset"],
   })
 );
 
@@ -35,6 +37,8 @@ app.options(/.*/, cors());
 console.log("CORS allowed origin:", process.env.FRONTEND_URL);
 
 app.use(express.json());
+
+
 
 app.use(
   session({
@@ -58,10 +62,12 @@ app.use(
 
 app.use("/api/auth", authRouter);
 app.use("/api/me", meRouter);
-
 // app.use("/api", apiKeyAuth);
 app.use("/api/rooms", roomsRouter);
 app.use("/api/bookings", bookingsRouter);
+
+app.use("/api", generalLimiter);
+
 app.use("/api/messages", messagesRouter);
 app.use("/api/admin/messages", adminMessagesRouter);
 
