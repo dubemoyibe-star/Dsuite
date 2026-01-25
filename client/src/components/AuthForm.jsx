@@ -24,7 +24,6 @@ export default function AuthForm({ mode }) {
   const [success, setSuccess] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
   const [rateLimitSeconds, setRateLimitSeconds] = React.useState(0);
-  const [attemptsLeft, setAttemptsLeft] = React.useState(null);
 
   React.useEffect(() => {
     setFormData(formDataInitialState);
@@ -54,24 +53,14 @@ export default function AuthForm({ mode }) {
       });
 
       const resetHeader = res.headers.get("RateLimit-Reset");
-      const remaining = res.headers.get("RateLimit-Remaining");
       if (res.status === 429) {
         const secondsLeft = resetHeader ? Number(resetHeader) : 60;
         setRateLimitSeconds(secondsLeft);
-        setAttemptsLeft(null);
         setError(`Too many attempts. Try again in ${secondsLeft}s`);
         setSuccess(false);
         setLoading(false);
         return;
       }
-
-      if (remaining && Number(remaining) > 0) {
-        setAttemptsLeft(Number(remaining));
-        setError(`You have ${remaining} attempt${remaining > 1 ? "s" : ""} left`);
-      }
-
-       if (remaining !== null) setAttemptsLeft(remaining);
-
       const data = await res.json();
 
       if (!res.ok) {
@@ -127,7 +116,6 @@ React.useEffect(() => {
 
 
     const getErrorMessage = () => {
-      if (attemptsLeft !== null && attemptsLeft < 2 ) return `Too many tries. You have ${Number(attemptsLeft) + 1 } attempt${Number(attemptsLeft) + 1 > 1 ? "s" : ""} left`;
       if (rateLimitSeconds > 0) return `Too many attempts. Try again in ${rateLimitSeconds}s`;
       return error;
     };
