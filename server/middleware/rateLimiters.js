@@ -1,38 +1,39 @@
 import {rateLimit } from "express-rate-limit";
 import RedisStore from "rate-limit-redis";
 import redisClient from "../config/redis.js";
+import { RATE_LIMITS } from "../config/rateLimits.js";
 
 export const generalLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  limit: 500,
+  windowMs: RATE_LIMITS.GENERAL.windowMs,
+  limit: RATE_LIMITS.GENERAL.limit,
   standardHeaders: true,
   legacyHeaders: false,
   store: new RedisStore({
     sendCommand: (...args) => redisClient.sendCommand(args),
-    prefix: "general:" 
+    prefix: "rl:general:" 
   }),
 });
 
 export const authLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  limit: 5,
+  windowMs: RATE_LIMITS.AUTH.windowMs,
+  limit: RATE_LIMITS.AUTH.limit,
   standardHeaders: true,
   legacyHeaders: false,
   store: new RedisStore({
     sendCommand: (...args) => redisClient.sendCommand(args),
-    prefix: "auth:" 
+    prefix: "rl:auth:", 
   }),
 });
 
 export const bookingLimiter = rateLimit({
-  windowMs: 5 * 60 * 1000,
-  limit: 20,
+  windowMs: RATE_LIMITS.BOOKING.windowMs,
+  limit: RATE_LIMITS.BOOKING.limit,
   standardHeaders: true,
   legacyHeaders: false,
   keyGenerator: (req) => req.user?.id,
   message: { error: "Too many booking attempts. Slow down." },
   store: new RedisStore({
     sendCommand: (...args) => redisClient.sendCommand(args),
-    prefix: "booking:" 
+    prefix: "rl:booking:" 
   }),
 });
