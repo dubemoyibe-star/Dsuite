@@ -23,7 +23,7 @@ const PORT = process.env.PORT;
 const NODE_ENV = process.env.NODE_ENV;
 const allowedOrigin = process.env.FRONTEND_URL
 
-app.set("trust proxy", 1);
+app.set("trust proxy", true);
 
 app.use(
   cors({
@@ -59,15 +59,13 @@ app.use(
   })
 );
 
+app.use("/api", generalLimiter);
 
 app.use("/api/auth", authRouter);
 app.use("/api/me", meRouter);
 // app.use("/api", apiKeyAuth);
 app.use("/api/rooms", roomsRouter);
 app.use("/api/bookings", bookingsRouter);
-
-app.use("/api", generalLimiter);
-
 app.use("/api/messages", messagesRouter);
 app.use("/api/admin/messages", adminMessagesRouter);
 

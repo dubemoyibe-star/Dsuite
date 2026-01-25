@@ -6,6 +6,7 @@ import { RATE_LIMITS } from "../config/rateLimits.js";
 export const generalLimiter = rateLimit({
   windowMs: RATE_LIMITS.GENERAL.windowMs,
   limit: RATE_LIMITS.GENERAL.limit,
+  skip: (req) => req.path.startsWith("/auth"),
   standardHeaders: true,
   legacyHeaders: false,
   store: new RedisStore({
