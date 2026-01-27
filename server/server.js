@@ -23,7 +23,7 @@ const PORT = process.env.PORT;
 const NODE_ENV = process.env.NODE_ENV;
 const allowedOrigin = process.env.FRONTEND_URL
 
-app.set("trust proxy", true);
+app.set("trust proxy", 1);
 
 app.use(
   cors({
