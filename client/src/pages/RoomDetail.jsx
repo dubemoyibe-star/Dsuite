@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import { FaCheck } from "react-icons/fa";
@@ -13,11 +14,11 @@ import { motion } from "framer-motion";
 export default function RoomDetail() {
   const BASE = import.meta.env.VITE_API_BASE_URL;
   const { id } = useParams();
-  const [room, setRoom] = react.useState(null);
-  const [loading, setLoading] = react.useState(true);
-  const [error, setError] = react.useState("");
+  const [room, setRoom] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState("");
 
-  react.useEffect(() => {
+  React.useEffect(() => {
     const fetchRoomDetail = async () => {
       try {
         const res = await fetch(`${BASE}/api/rooms/${id}`, {
