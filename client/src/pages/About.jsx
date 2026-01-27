@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaBed } from "react-icons/fa";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";

@@ -161,7 +161,7 @@ export default function Profile() {
               className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col sm:flex-row"
             >
               <img
-                src={`/assets/${booking.room_image}`}
+                src={`https://ik.imagekit.io/wyhbark190/assets/${booking.room_image}`}
                 alt={booking.room_name}
                 className="w-full h-full sm:w-40  object-cover"
               />

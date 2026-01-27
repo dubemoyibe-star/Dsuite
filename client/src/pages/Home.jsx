@@ -5,9 +5,6 @@ import { FaHeadphones } from "react-icons/fa6";
 import { CiWifiOn } from "react-icons/ci";
 import { IoShieldCheckmarkSharp } from "react-icons/io5"
 import { GiBedLamp } from "react-icons/gi";
-import familyImg from "/assets/family.jpg"
-import regularImg from "/assets/regular.jpg"
-import exclusiveImg from "/assets/exclusive.jpg"
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -121,7 +118,11 @@ export default function Home() {
             transition={{duration: 0.8 }}
             className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300  flex-1 min-w-0'>
               <div className="overflow-hidden rounded-t-lg">
-               <img src={exclusiveImg} alt="exclusive hotel room" className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
+               <img 
+               src="https://ik.imagekit.io/wyhbark190/assets/exclusive.jpg"
+               loading="lazy"
+               alt="exclusive hotel room" 
+               className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Exclusive Suite</h3>
@@ -138,7 +139,11 @@ export default function Home() {
             transition={{duration: 0.8 }}
             className='bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
               <div className="overflow-hidden rounded-t-lg">
-                <img src={regularImg} alt="regular hotel room" className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
+                <img 
+                src="https://ik.imagekit.io/wyhbark190/assets/regular.jpg"
+                loading="lazy"
+                alt="regular hotel room" 
+                className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Regular Suite</h3>
@@ -155,7 +160,11 @@ export default function Home() {
             transition={{duration: 0.8 }}
             className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
               <div className="overflow-hidden rounded-t-lg">
-              <img src={familyImg} alt="family hotel room" className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
+              <img 
+              src="https://ik.imagekit.io/wyhbark190/assets/family.jpg" 
+              loading="lazy"
+              alt="family hotel room" 
+              className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
               </div>
               <div className='p-6 flex flex-col '>
                 <h3 className='text-2xl font-semibold font-serif'>Family Suite</h3>

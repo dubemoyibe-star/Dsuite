@@ -121,7 +121,7 @@ React.useEffect(() => {
     };
 
   return (
-    <section className={` ${isSignUp ? '' : 'h-screen'} bg-gray-200 sm:py-4 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.75)),url('/assets/auth-bg.jpg')] bg-cover bg-center min-h-screen `}>
+    <section className={` ${isSignUp ? '' : 'h-screen'} bg-gray-200 sm:py-4 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.75)),url('https://ik.imagekit.io/wyhbark190/assets/auth-bg.jpg')] bg-cover bg-center min-h-screen `}>
       <form
         onSubmit={handleSubmit}
         className="bg-gray-50 sm:rounded-2xl shadow-xl p-6 lg:p-8 flex flex-col gap-4 max-w-lg mx-auto h-full"

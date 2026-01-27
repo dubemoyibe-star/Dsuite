@@ -1,4 +1,3 @@
-import react from "react";
 import { useParams, Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import { FaCheck } from "react-icons/fa";
@@ -71,7 +70,11 @@ export default function RoomDetail() {
             viewport={{once: true}}
             transition={{duration: 0.8}} 
             className="h-screen">
-              <img src={`/assets/${image_url}`} alt={`${name}`} className="w-full h-full object-cover"/>
+              <img 
+              src={`https://ik.imagekit.io/wyhbark190/assets/${image_url}`} 
+              alt={`${name}`} 
+              loading="lazy"
+              className="w-full h-full object-cover"/>
             </motion.div>
             
            <div className="mx-auto px-4  lg:px-8 pt-4 lg:pt-8">
@@ -86,8 +89,9 @@ export default function RoomDetail() {
                   key={thumb} 
                   className="overflow-hidden rounded-lg">
                   <img
-                    src={`/assets/${thumb}`}
+                    src={`https://ik.imagekit.io/wyhbark190/assets/${thumb}`}
                     alt={`${name} thumbnail ${index + 1}`}
+                    loading="lazy"
                     className="w-full h-40 lg:h-56  object-cover rounded-lg transition-transform duration-300 ease-out hover:scale-110 cursor-pointer"
                   />
                   </motion.div>

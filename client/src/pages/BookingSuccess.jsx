@@ -1,11 +1,10 @@
-import React  from "react";
 import { FaCircleCheck } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function BookingSuccess(){
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.85)),url('/assets/auth-bg.jpg')] bg-cover bg-center px-4">
+    <section className="min-h-screen flex items-center justify-center bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.85)),url('https://ik.imagekit.io/wyhbark190/assets/auth-bg.jpg')] bg-cover bg-center px-4">
       
       <motion.div 
       initial={{ y: 50, opacity: 0 }}

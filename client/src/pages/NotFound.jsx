@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function NotFound() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.85)),url('/assets/auth-bg.jpg')] bg-cover bg-center px-4">
+    <section className="min-h-screen flex items-center justify-center bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.85)),url('https://ik.imagekit.io/wyhbark190/assets/auth-bg.jpg')] bg-cover bg-center px-4">
       
       <motion.div 
       initial={{ y: 50, opacity: 0 }}
@@ -47,12 +47,12 @@ export default function NotFound() {
           Let’s get you back to comfort and luxury.
         </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row sm:w-full gap-4 justify-center">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.1}}
-            className="flex"
+            className="flex grow"
           >
             <Link
             to="/"
@@ -66,7 +66,7 @@ export default function NotFound() {
           initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2}}
-          className="flex"
+          className="flex grow"
           >
               <Link
               to="/rooms"

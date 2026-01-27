@@ -88,7 +88,11 @@ export default function Rooms() {
           key={id} 
           className=' bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-1 min-w-0'>
           <div className="overflow-hidden rounded-t-lg">
-          <img src={`/assets/${image_url}`} alt={`${name}`} className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
+          <img 
+          src={`https://ik.imagekit.io/wyhbark190/assets/${image_url}`} 
+          alt={`${name}`} 
+          loading="lazy"
+          className='rounded-t-lg w-full object-cover h-56 transform transition-transform duration-500 ease-out hover:scale-110'/>
           </div>
           <div className='p-6 flex flex-col '>
             <h3 className='text-3xl font-medium font-serif text-yellow-700'>{name}</h3>

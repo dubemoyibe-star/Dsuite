@@ -132,7 +132,8 @@ export default function Checkout() {
             initial={{scale: 0.9, opacity: 0}}
             whileInView={{scale: 1, opacity:1}}
             transition={{duration: 0.8 }} 
-            src={`/assets/${room.image_url}`}
+            src={`https://ik.imagekit.io/wyhbark190/assets/${room.image_url}`}
+            loading="lazy"
             alt={room.name}
             className="rounded-xl w-full h-[350px] object-cover"
           />

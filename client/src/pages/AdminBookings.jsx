@@ -100,7 +100,8 @@ export default function AdminBookings() {
               className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col sm:flex-row"
             >
               <img
-                src={`/assets/${booking.room_image}`}
+                src={`https://ik.imagekit.io/wyhbark190/assets/${booking.room_image}`}
+                loading="lazy"
                 alt={booking.room_name}
                 className="w-full sm:w-40 h-full object-cover"
               />
